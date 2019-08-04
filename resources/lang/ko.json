@@ -1,0 +1,12 @@
+{
+  "Register": "회원가입",
+  "Login": "로그인",
+  "Name": "이름",
+  "E-Mail Address": "이메일 주소",
+  "Password": "패스워드",
+  "Confirm Password": "패스워드 확인",
+  "Phone Number": "전화번호",
+  "Position": "직책",
+  "Company Name": "회사이름",
+  "Address": "주소"
+}

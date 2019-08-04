@@ -16,6 +16,11 @@ class CardController extends Controller
         //
     }
 
+    public function showRegistrationForm()
+    {
+        return view('cards.register');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="86px" height="86px" viewBox="0 0 86 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>location</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="80.7899013%" y1="100%" x2="29.4213223%" y2="14.6542828%" id="linearGradient-1">
+            <stop stop-color="#2692FF" offset="0%"></stop>
+            <stop stop-color="#00BEFF" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="70" height="70" rx="10"></rect>
+        <filter x="-20.0%" y="-14.3%" width="140.0%" height="140.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.145098039   0 0 0 0 0.580392157   0 0 0 0 1  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="location" transform="translate(8.000000, 4.000000)">
+            <g id="Rectangle" fill-rule="nonzero">
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            </g>
+            <g id="Pin-1" transform="translate(19.000000, 12.000000)" fill="#FFFFFF">
+                <path d="M15.2255639,44.4924812 C15.2255639,44.4924812 -1.95399252e-13,24.1419295 -1.95399252e-13,15.7330827 C-1.95399252e-13,7.32423595 6.81671716,0.507518797 15.2255639,0.507518797 C23.6344107,0.507518797 30.4511278,7.32423595 30.4511278,15.7330827 C30.4511278,24.1419295 15.2255639,44.4924812 15.2255639,44.4924812 Z M15.2255639,20.8082707 C18.0285128,20.8082707 20.3007519,18.5360316 20.3007519,15.7330827 C20.3007519,12.9301338 18.0285128,10.6578947 15.2255639,10.6578947 C12.422615,10.6578947 10.1503759,12.9301338 10.1503759,15.7330827 C10.1503759,18.5360316 12.422615,20.8082707 15.2255639,20.8082707 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

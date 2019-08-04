@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="126px" height="126px" viewBox="0 0 126 126" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>address</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="7" y="7" width="56" height="56" rx="6"></rect>
+        <filter x="-93.8%" y="-86.6%" width="301.8%" height="301.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="4" dy="8" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="17.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="57.8203129%" y1="79.6630327%" x2="28.4289478%" y2="24.7637925%" id="linearGradient-3">
+            <stop stop-color="#FFA900" offset="0%"></stop>
+            <stop stop-color="#FFD325" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-4" x="0" y="0" width="70" height="70" rx="10"></rect>
+        <filter x="-20.0%" y="-14.3%" width="140.0%" height="140.0%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.662745098   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="address" transform="translate(24.000000, 20.000000)">
+            <g id="Group-2" fill-rule="nonzero">
+                <g id="Rectangle-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <rect stroke="#979797" stroke-width="1" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="7.5" y="7.5" width="55" height="55" rx="6"></rect>
+                </g>
+                <g id="Rectangle-2">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                        <use fill="url(#linearGradient-3)" xlink:href="#path-4"></use>
+                    </g>
+                </g>
+                <rect id="Rectangle" x="18" y="18" width="34" height="34"></rect>
+            </g>
+            <g id="File" transform="translate(16.500000, 11.500000)" fill="#FFFFFF">
+                <path d="M0,1.00298231 C0,0.449050474 0.449094163,0 0.996920801,0 L35.5655792,0 C36.1161634,0 36.5625,0.445380807 36.5625,1.00298231 L36.5625,43.9970177 C36.5625,44.5509495 36.1134058,45 35.5655792,45 L0.996920801,45 C0.446336646,45 0,44.5546192 0,43.9970177 L0,1.00298231 Z M8.4375,11.3556373 L8.4375,14.9693627 C8.4375,15.5336157 8.88672516,15.975 9.44087248,15.975 L27.1216275,15.975 C27.6768086,15.975 28.125,15.5247609 28.125,14.9693627 L28.125,11.3556373 C28.125,10.7913843 27.6757748,10.35 27.1216275,10.35 L9.44087248,10.35 C8.88569143,10.35 8.4375,10.8002391 8.4375,11.3556373 Z M8.4375,20.6931373 L8.4375,24.3068627 C8.4375,24.8711157 8.88672516,25.3125 9.44087248,25.3125 L27.1216275,25.3125 C27.6768086,25.3125 28.125,24.8622609 28.125,24.3068627 L28.125,20.6931373 C28.125,20.1288843 27.6757748,19.6875 27.1216275,19.6875 L9.44087248,19.6875 C8.88569143,19.6875 8.4375,20.1377391 8.4375,20.6931373 Z M8.4375,30.0306373 L8.4375,33.6443627 C8.4375,34.2086157 8.88672516,34.65 9.44087248,34.65 L27.1216275,34.65 C27.6768086,34.65 28.125,34.1997609 28.125,33.6443627 L28.125,30.0306373 C28.125,29.4663843 27.6757748,29.025 27.1216275,29.025 L9.44087248,29.025 C8.88569143,29.025 8.4375,29.4752391 8.4375,30.0306373 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

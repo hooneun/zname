@@ -1,0 +1,19 @@
+.about {
+    font-family: 'Slabo 27px', serif;
+    font-weight: normal;
+}
+
+.main_hr {
+    border-top: 1px dotted #565656;
+    height: 1px;
+    width: 30%;
+    left: 35%;
+    margin-bottom: 30px;
+}
+
+.main_p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #878787;
+}

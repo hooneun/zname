@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="86px" height="86px" viewBox="0 0 86 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>addmycard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="70.2530928%" y1="87.5133326%" x2="61.4671695%" y2="21.2043534%" id="linearGradient-1">
+            <stop stop-color="#A93BFE" offset="0%"></stop>
+            <stop stop-color="#C961FF" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="70" height="70" rx="10"></rect>
+        <filter x="-20.0%" y="-14.3%" width="140.0%" height="140.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.662745098   0 0 0 0 0.231372549   0 0 0 0 0.996078431  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="addmycard" transform="translate(8.000000, 4.000000)">
+            <g id="Rectangle" fill-rule="nonzero">
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            </g>
+            <g id="oneplus-logo" transform="translate(12.000000, 7.000000)" fill="#FFFFFF">
+                <polygon id="Plus" points="39.1297256 0.127249303 39.1297256 6.6020002 32.6704121 6.56169297 32.6466087 10.9110656 39.1339573 10.9566625 39.1533175 17.4027518 43.4746549 17.4038097 43.5405641 10.9488338 49.9557618 10.9660781 49.977132 6.59554681 43.4969773 6.51101799 43.467461 0.0786818106"></polygon>
+                <polygon id="Square" points="28.361162 10.8808121 28.3613518 6.53106746 0.0363869807 6.52784093 0.0462563725 49.9229875 43.5955173 49.9138773 43.5860275 21.6397778 39.0106154 21.725186 39.116142 45.4629714 4.44895412 45.4498755 4.40677966 10.9322034"></polygon>
+            </g>
+            <path d="M33.2829529,31.9568932 C36.032473,31.9568932 38.2613995,29.7279667 38.2613995,26.9784466 C38.2613995,24.2289265 36.032473,22 33.2829529,22 C30.5334328,22 28.3045063,24.2289265 28.3045063,26.9784466 C28.3045063,29.7279667 30.5334328,31.9568932 33.2829529,31.9568932 L33.2829529,31.9568932 Z M23.1559155,44.2714668 C22.9841706,45.2250516 23.7426991,45.9964289 24.599339,45.9948489 L24.599339,45.9948489 L42.1369065,45.9625023 L42.1369065,45.9625023 C43.0908785,45.9607428 43.7143287,45.0676968 43.5778513,44.2558989 L43.5778513,44.2558989 C43.5218857,43.9230034 43.3992313,43.3831667 43.1909375,42.7024489 C42.8462272,41.5759134 42.376864,40.4484243 41.7585087,39.3854824 C39.926338,36.2360129 37.1713158,34.2806867 33.4208022,34.2806868 C29.6734086,34.2806869 26.9012846,36.2378459 25.0334837,39.39183 C24.4029451,40.4565627 23.9201487,41.5862704 23.5617722,42.7151192 C23.3452021,43.3972922 23.2159383,43.9381998 23.1559155,44.2714668 L23.1559155,44.2714668 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

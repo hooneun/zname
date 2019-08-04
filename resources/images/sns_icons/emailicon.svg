@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="121px" height="100px" viewBox="0 0 121 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>emailicon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M60.075,42.9845 C50.31,42.9845 0,14.455 0,14.455 L0,10 C0,4.48 4.48,0 10.01,0 L110.14,0 C115.675,0 120.155,4.48 120.155,10 L120.075,15 C120.075,15 70.31,42.9845 60.075,42.9845 Z M60.075,56.7345 C70.78,56.7345 120.075,30 120.075,30 L120.155,90 C120.155,95.52 115.675,100 110.14,100 L10.01,100 C4.485,100 0,95.52 0,90 L0.08,30 C0.075,30 50.31,56.7345 60.075,56.7345 Z" id="emailicon" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

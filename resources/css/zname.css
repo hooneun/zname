@@ -23,8 +23,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
 }
-
+.loader_background.fade {
+    z-index: 0;
+}
 .loader_background > img {
     width: 70%;
     margin-bottom: 50%;

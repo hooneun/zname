@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<img src="{{ asset('images/loader.png') }}" id="js-startImg" class="position-absolute fixed-top img-fluid h-100">
+{{--<img src="{{ asset('images/loader.png') }}" id="js-startImg" class="position-absolute fixed-top img-fluid w-100">--}}
+<div id="js-startImg" class="loader_background h-100 w-100 position-absolute fixed-top">
+    <img src="{{ asset('images/loader.png') }}">
+</div>
 <div class="container">
     @auth
         <div class="row">
@@ -64,8 +67,8 @@
 
         @if (config('app.env') === 'production')
         setTimeout(function () {
-            START_IMG.classList.add('fade');
-            START_IMG.style.display = 'none';
+//            START_IMG.classList.add('fade');
+//            START_IMG.style.display = 'none';
         }, 2000);
         @else
             START_IMG.style.display = 'none';

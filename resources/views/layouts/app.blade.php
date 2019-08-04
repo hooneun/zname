@@ -16,6 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -24,7 +25,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'ZCARD') }}
+                <img src="{{ asset('images/logo.png') }}" style="height: 16px;">
             </a>
             @auth
                 <a href="{{ route('logout') }}" class="btn btn-light"

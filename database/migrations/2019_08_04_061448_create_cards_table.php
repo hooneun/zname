@@ -16,13 +16,7 @@ class CreateCardsTable extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
-            $table->string('email')->nullable();
-            $table->string('company_name')->nullable();
-            $table->string('contact_address')->nullable();
-            $table->string('position')->nullable();
-            $table->string('company_name')->nullable();
-            $table->string('address')->nullable();
-            $table->json('contents');
+            $table->text('contents');
             $table->bigInteger('hit')->unsigned()->default(0);
             $table->timestamps();
 

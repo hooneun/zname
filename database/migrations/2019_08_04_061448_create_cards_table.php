@@ -22,6 +22,7 @@ class CreateCardsTable extends Migration
             $table->string('position')->nullable();
             $table->string('company_name')->nullable();
             $table->string('address')->nullable();
+            $table->json('contents');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

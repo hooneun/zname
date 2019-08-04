@@ -62,8 +62,7 @@
     <script>
         const START_IMG = document.getElementById('js-startImg');
 
-        @if (env('production'))
-        {{--@if (1)--}}
+        @if (config('app.env') === 'production')
         setTimeout(function () {
             START_IMG.classList.add('fade');
             START_IMG.style.display = 'none';

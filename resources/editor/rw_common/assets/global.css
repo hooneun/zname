@@ -1,0 +1,197 @@
+#stacks_in_525_page0 span {
+    width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    color: #000000;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom:4px;
+    margin-left: 15px;
+}
+
+.stacks_in.html_stack {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 414px) {
+  #stacks_in_212_page0 .s3_column.s3_column_left {
+	width: 25% !important;
+	}
+	#stacks_in_212_page0 .s3_column.s3_column_right {
+	width: 75% !important;
+	}
+	#stacks_in_307_page0>.s3_row>.s3_column_left {
+    width: 10% !important;
+    padding-left: 14px;
+	}
+	#stacks_in_307_page0>.s3_row>.s3_column_right {
+	 width: 88% !important;
+	}
+	#stacks_in_322_page0>.s3_row>.s3_column_left {
+	 width: 10% !important;
+    padding-left: 14px;
+	}
+	#stacks_in_322_page0>.s3_row>.s3_column_right {
+	 width: 88% !important;
+	}
+}
+@media screen and (max-width: 375px) {
+  #stacks_in_212_page0 .s3_column.s3_column_left {
+	width: 30% !important;
+	}
+	#stacks_in_212_page0 .s3_column.s3_column_right {
+	width: 70% !important;
+	}
+	#stacks_in_307_page0>.s3_row>.s3_column_left {
+	width: 14% !important; 
+	}
+	#stacks_in_307_page0>.s3_row>.s3_column_right {
+	width: 86% !important; 
+	}
+	#stacks_in_322_page0>.s3_row>.s3_column_left {
+	width: 14% !important; 
+	}
+	#stacks_in_322_page0>.s3_row>.s3_column_right {
+	width: 86% !important; 
+	}
+	#stacks_in_307_page0>.s3_row>.s3_column_left {
+    width: 10% !important;
+    padding-left: 14px;
+	}
+	#stacks_in_307_page0>.s3_row>.s3_column_right {
+	 width: 88% !important;
+	}
+	#stacks_in_322_page0>.s3_row>.s3_column_left {
+	 width: 10% !important;
+    padding-left: 14px;
+	}
+	#stacks_in_322_page0>.s3_row>.s3_column_right {
+	 width: 88% !important;
+	}
+}
+
+
+@media screen and (max-width: 320px) {
+  #stacks_in_212_page0 .s3_column.s3_column_left {
+	width: 33% !important;
+	}
+	#stacks_in_212_page0 .s3_column.s3_column_right {
+	width: 67% !important;
+	}
+}
+#stacks_in_363_page0 .s3_column.s3_column_left {
+    width: 15% !important;
+}
+#stacks_in_363_page0 .s3_column.s3_column_right {
+       width: 85% !important; 
+}
+#stacks_in_162_page0 .s3_column.s3_column_left {
+    width: 15% !important;
+}
+#stacks_in_162_page0 .s3_column.s3_column_right {
+       width: 85% !important; 
+}
+#stacks_in_377_page0 .s3_column.s3_column_left {
+    width: 15% !important;
+}
+#stacks_in_377_page0 .s3_column.s3_column_right {
+       width: 85% !important; 
+}
+#stacks_in_547_page0>.s3_row>.s3_column {
+	width: 20% !important;
+}
+#stacks_in_547_page0>.s3_row>.s3_column_right {
+width: 20% !important;
+}
+#stacks_in_386_page0 .imageStyle {
+max-height: 30px;
+max-width: 30px;    
+}
+#stacks_in_390_page0 .imageStyle {
+max-height: 30px;
+max-width: 30px;  
+}
+#stacks_in_388_page0 .imageStyle {
+max-height: 30px;
+max-width: 30px;   
+}
+#stacks_in_392_page0 .imageStyle {
+max-height: 30px;
+max-width: 30px; 
+}
+#stacks_in_553_page0 .imageStyle {
+max-height: 30px;
+max-width: 30px; 
+}
+#stacks_in_307_page0>.s3_row>.s3_column_left {
+    width: 12%;
+}
+#stacks_in_307_page0>.s3_row>.s3_column_right {
+    width: 88%;
+}
+#stacks_in_322_page0>.s3_row>.s3_column_left {
+    width: 12%;
+}
+#stacks_in_322_page0>.s3_row>.s3_column_right {
+    width: 88%;
+}
+#stacks_out_378_page0 {
+	padding-top: 4px;
+}
+#stacks_out_361_page0 {
+	padding-top: 4px;
+}
+#stacks_out_384_page0 {
+	padding-top: 2px;
+}
+#stacks_in_555_page0 span {
+  font-size: 16px;   
+}
+#stacks_in_557_page0 span {
+  font-size: 16px;   
+}
+#stacks_in_559_page0 span {
+  font-size: 16px;   
+}
+.ct-ignition__button.ct-ignition__button--edit {
+	width:88px !important;
+	height: 88px !important;
+	font-size: 38px;
+	padding: 20px;
+}
+.ct-ignition__button.ct-ignition__button--logout {
+	width:88px !important;
+	height: 88px !important;
+	font-size: 38px;
+	padding: 20px;
+}
+.ct-ignition__button.ct-ignition__button--confirm {
+	width:88px !important;
+	height: 88px !important;
+	font-size: 38px;
+	padding: 20px;
+	bottom: -44px;
+}
+.ct-ignition__button.ct-ignition__button--cancel {
+	width:88px !important;
+	height: 88px !important;
+	font-size: 38px;
+	padding: 20px;
+	left: 110px;
+	bottom: -44px;
+}
+
+.ct-widget.ct-ignition.ct-ignition--ready {
+	bottom: 103px !important;
+}
+.ct-widget.ct-toolbox {
+	 top:auto;
+	 left:auto;
+	 right: 10px;
+    bottom: 40px;
+}
+.ct-widget .ct-toolbox__grip {
+	display: none;
+}

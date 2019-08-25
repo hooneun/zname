@@ -19,17 +19,23 @@
                 </tr>
                 </thead>
                 <tbody>
-                @empty($cardList)
+                @forelse($cardList as $list)
+                    <tr>
+
+                    </tr>
+                @empty
                     <tr>
                         <td colspan="4" class="text-center">{{ __('Not Registered Card') }}</td>
                     </tr>
-                @else
-                @endempty
+                @endforelse
                 </tbody>
             </table>
         </div>
         <div class="row">
             <div class="col text-right">
+                @isset($message)
+                    <span class="text-danger">{{ $message }}</span>
+                @endisset
                 <a href="{{ route('cards.register') }}" class="btn btn-primary">{{ __('Register Card') }}</a>
             </div>
         </div>

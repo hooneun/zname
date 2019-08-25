@@ -48,6 +48,7 @@
 }
 #zname_total_wrapper {
     display: flex;
+    height: auto;
     justify-content: center;
 }
 #rep_img img {
@@ -55,6 +56,8 @@
     min-width: 94vw;
     width: 94vw;
     height: auto;
+    box-sizing: border-box;
+    height: 323px;
 }
 #main_card_section {
     display: flex;
@@ -65,11 +68,12 @@
     width: 94vw;
 }
 #main_left_section img {
-    max-width: 100px;
+    width: 100px;
+    height: 100px;
 }
 .speficif_spec div img {
     height: 15px;
-    margin-right: 5px;
+
 }
 #main_left_section {
     margin-right:10px;
@@ -87,7 +91,6 @@
 .speficif_spec div {
     display: flex;
     align-content: center;
-    margin-bottom: 5px;
     justify-content: center;
 }
 .speficif_spec div p {
@@ -99,6 +102,7 @@
 #main_right_section {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 #main_card_section {
     margin-bottom: 10px;
@@ -107,6 +111,7 @@
     display: flex;
     justify-content: center;
     margin: 10px;
+    margin-bottom: 15px;
 }
 #social_link  div img {
     display: flex;
@@ -117,10 +122,15 @@
 #main_pic, #main_photo, #ad_sec1, #ad_sec2, #ad_sec3 {
     display: none;
 }
+#video_section img {
+    width: 94vw;
+    height: 280px;
+}
 #total_ad_section div img {
     max-width: 94vw;
     display: flex;
     margin: 0 auto;
+    height: auto;
 }
 #total_ad_section div {
     display: flex;
@@ -130,6 +140,7 @@ input {
     border: 0;
     width:100vw;
     font-size: 14px;
+    padding:0;
 }
 
 input::placeholder {
@@ -138,7 +149,9 @@ input::placeholder {
     width: auto;
 }
 #social_link img {
-    width: 80%;
+    width: 70px;
+    height: 70px;
+    margin: 0 5px;
 }
 #social_link a {
     flex: 1;
@@ -157,11 +170,20 @@ input[type="url"] {
     font-size: 18px !important;
 }
 #ad_contetn1, #ad_contetn2, #ad_contetn3 {
-    min-height: 100px;
+    width: 94vw;
+    margin: 10px 0;
+    color: black;
+    font-family: arial;
+    font-size: 14px;
+    border: 0;
+    min-height: 70px;
 }
 #ad_contetn1::placeholder, #ad_contetn2::placeholder, #ad_contetn3::placeholder {
     min-height: 100px;
     text-align: top;
+    color: black;
+    font-family: arial;
+    font-size: 14px;
 }
 #profile_section {
     display: flex;
@@ -171,13 +193,17 @@ input[type="url"] {
     width: 100vw;
 }
 #main_right_section input {
-    width: calc(100vw - 135px);
+    width: calc(100vw - 35vw);
 }
 .speficif_spec div input {
-    width: calc(100vw - 155px) !important;
+    width: 100%;
+    height: 24px;
 }
 #main_sub_section .speficif_spec div input {
-    width: calc(100vw - 50px) !important;
+    width: 100%;
+}
+#main_left_section {
+    display: flex;
 }
 #total_ad_section {
     display: flex;
@@ -186,5 +212,15 @@ input[type="url"] {
 }
 #total_ad_section input {
     width: 94vw;
+}
+.spec_section {
+    min-height: 10px;
+    align-items: center;
+}
+.img_wrapper img {
+    margin-right: 5px;
+}
+#video_section {
+    margin-bottom:20px;
 }
 

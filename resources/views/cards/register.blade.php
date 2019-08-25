@@ -19,36 +19,36 @@
                         <img onclick="click_to_change('main_photo')" src="{{ asset('images/card/myprofilephoto.png') }}">
                     </div>
                     <div id="main_right_section">
-                        <input id="rep_name" type="text" placeholder="이름(필수, 최대10자)" name="name" required minlength="2" maxlength="10" size="16">
+                        <input id="rep_name" type="text" placeholder="이름 (필수, 최대15자)" name="name" required minlength="2" maxlength="15" size="16">
                         <div class="speficif_spec">
-                            <div>
+                            <div class="spec_section">
                                 <div class="img_wrapper"><img src="{{ asset('images/card/myjob.png') }}"></div>
-                                <input id="rep_job" type="text" placeholder="직업(필수, 최대30자)" name="job" required minlength="1" maxlength="30" size="16">
+                                <input id="rep_job" type="text" placeholder="직업 (필수, 최대20자)" name="job" required minlength="1" maxlength="20" size="16">
                             </div>
-                            <div>
+                            <div class="spec_section">
                                 <div class="img_wrapper"><img src="{{ asset('images/card/myaddress.png') }}"></div>
-                                <input id="rep_address" type="text" placeholder="주소(필수, 최대30자)" name="address" required minlength="1" maxlength="30" size="16">
+                                <input id="rep_address" type="text" placeholder="주소 (필수, 최대20자)" name="address" required minlength="1" maxlength="20" size="16">
                             </div>
-                            <div>
+                            <div class="spec_section">
                                 <div class="img_wrapper"><img src="{{ asset('images/card/myphone.png') }}"></div>
-                                <input id="rep_contact" type="tel" placeholder="연락처(필수, 예: 010-0000-0000)" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" required minlength="2" maxlength="20" size="16">
+                                <input id="rep_contact" type="tel" placeholder="연락처 (필수, 예: 010-0000-0000)" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" required minlength="2" maxlength="20" size="16">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="main_sub_section">
                     <div class="speficif_spec">
-                        <div>
+                        <div class="spec_section">
                             <div class="img_wrapper"><img src="{{ asset('images/card/mymessage.png') }}"></div>
-                            <input id="today_comment" type="text" placeholder="오늘의 한마디(선택)" name="message" required minlength="2" maxlength="20" size="16">
+                            <input id="today_comment" type="text" placeholder="오늘의 한마디 (선택, 최대 30자)" name="message" required minlength="2" maxlength="30" size="16">
                         </div>
-                        <div>
+                        <div class="spec_section">
                             <div class="img_wrapper"><img src="{{ asset('images/card/myemail.png') }}"></div>
-                            <input id="rep_email" type="eamil" placeholder="이메일(선택)" name="email" required minlength="2" maxlength="20" size="16">
+                            <input id="rep_email" type="eamil" placeholder="이메일 (선택)" name="email" required minlength="2" maxlength="20" size="16">
                         </div>
-                        <div>
+                        <div class="spec_section">
                             <div class="img_wrapper"><img src="{{ asset('images/card/mycafe.png') }}"></div>
-                            <input id="rep_cafe" type="text" placeholder="카페 또는 블로그(선택)" name="cafe" required minlength="2" maxlength="20" size="16">
+                            <input id="rep_cafe" type="text" placeholder="카페 또는 블로그 (선택)" name="cafe" required minlength="2" maxlength="20" size="16">
                         </div>
                     </div>
                 </div>
@@ -74,24 +74,26 @@
                         <img src="{{ asset('images/card/socialkakaoicon.png') }}">
                     </a>
                 </div>
-                <div>
-                    <div id="video_section"></div>
+                <div id="video_section">
+                    <div id="video_wrapper">
+                        <img src="{{ asset('images/card/myyoutube.png') }}">
+                    </div>
                 </div>
                 <div id="total_ad_section">
                     <div>
                         <input id="ad_sec1" type="file" name="ad_image_top" onchange="readURL(this);" />
                         <img onclick="click_to_change('ad_sec1')" src="{{ asset('images/card/adsection1.png') }}">
-                        <input id="ad_contetn1" align="top" type="text" placeholder="필요한 안내,홍보,광고문구를 넣어주세요(최대 200)" name="ad_content_top" required minlength="2" maxlength="200" size="16">
+                        <textarea id="ad_contetn1" onkeyup="auto_grow(this)" name="ad_content_top" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요."></textarea>
                     </div>
                     <div>
                         <input id="ad_sec2" type="file" name="ad_image_middle" onchange="readURL(this);" />
                         <img onclick="click_to_change('ad_sec2')" src="{{ asset('images/card/adsection2.png') }}">
-                        <input id="ad_contetn2" type="text" placeholder="필요한 안내,홍보,광고문구를 넣어주세요(최대 200)" name="ad_content_middle" required minlength="2" maxlength="200" size="16">
+                        <textarea id="ad_contetn2" onkeyup="auto_grow(this)" name="ad_content_middle" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요."></textarea>
                     </div>
                     <div>
                         <input id="ad_sec3" type="file" name="ad_image_bottom" onchange="readURL(this);" />
                         <img onclick="click_to_change('ad_sec3')" src="{{ asset('images/card/adsection3.png') }}">
-                        <input id="ad_contetn3" type="text" placeholder="필요한 안내,홍보,광고문구를 넣어주세요(최대 200)" name="ad_content_bottom" required minlength="2" maxlength="200" size="16">
+                        <textarea id="ad_contetn3" onkeyup="auto_grow(this)" name="ad_content_bottom" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요."></textarea>
                     </div>
                 </div>
             </div>

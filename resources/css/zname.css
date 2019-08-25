@@ -57,7 +57,7 @@
     width: 94vw;
     height: auto;
     box-sizing: border-box;
-    height: 323px;
+    max-height: 323px;
 }
 #main_card_section {
     display: flex;
@@ -223,4 +223,3 @@ input[type="url"] {
 #video_section {
     margin-bottom:20px;
 }
-

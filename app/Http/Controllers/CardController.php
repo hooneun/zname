@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Card;
+use App\Detail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Traits\CardImage;
 
 class CardController extends Controller
 {
+    use CardImage;
+
     private $message;
 
     public function __construct()
@@ -69,17 +73,30 @@ class CardController extends Controller
         $cardCount = Card::whereUserId($userId)->count();
 
         if ($cardCount >= 3) {
-            return response()->json([
-                'message' => '',
-            ], 400);
+            $this->message = 'Card Created Over.';
+            $this->index();
         }
 
-        DB::transaction(function () use ($userId) {
+        $this->validator($request->all())->validate();
+
+        $imagePaths = $this->imageCreates($userId, $request->only(Detail::$IMAGE_COLUMNS));
+        $req = $request->all();
+
+        foreach ($imagePaths as $key => $path) {
+            $req[$key] = $path;
+        }
+
+        $card = DB::transaction(function () use ($userId, $req) {
             $card = Card::create([
                 'user_id' => $userId
             ]);
 
+            $req['card_id'] = $card->id;
+
+            return Detail::create($req);
         });
+
+        return view('cards.register', compact('card'));
     }
 
     /**
@@ -183,5 +200,41 @@ class CardController extends Controller
         $id = Auth::id();
 
          Storage::delete('/public/cards/' . $id . '/' . $request->delete_file);
+    }
+
+    public function validator(array $data)
+    {
+        return Validator::make($data, [
+            'main_image' => ['required', 'image'],
+            'main_profile' => ['required', 'image'],
+            'name' => ['required'],
+            'job' => ['required', 'between:2,30'],
+            'address' => ['required', 'between:1, 30'],
+            'phone' => ['required'],
+            'message' => ['between:5,50'],
+            'email' => ['email'],
+            'cafe' => ['active_url'],
+            'facebook' => ['active_url'],
+            'twitter' => ['active_url'],
+            'instagram' => ['active_url'],
+            'band' => ['active_url'],
+            'kakao' => ['active_url'],
+            'ad_image_top' => ['image'],
+            'ad_content_top' => ['between:5,200'],
+            'ad_image_middle' => ['image'],
+            'ad_content_middle' => ['between:5,200'],
+            'ad_image_bottom' => ['image'],
+            'ad_content_bottom' => ['between:5,200'],
+        ],[],[
+            'main_image' => '메인 이미지',
+            'main_profile' => '프로필 사진',
+            'name' => '이름',
+            'job' => '직업',
+            'address' => '주소',
+            'phone' => '연락처',
+            'message' => '오늘의 한마디',
+            'email' => '이메일',
+            'cafe' => '카페 또는 블로그',
+        ]);
     }
 }

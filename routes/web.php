@@ -15,5 +15,5 @@ Route::get('/', 'CardController@index');
 
 Auth::routes();
 
-Route::get('/cards/register', 'CardController@showRegistrationForm')->name('cards.register');
-Route::post('/cards/register', 'CardController@store');
+Route::get('/cards/register', 'CardController@showRegistrationForm');
+Route::post('/cards/register', 'CardController@store')->name('card.register');

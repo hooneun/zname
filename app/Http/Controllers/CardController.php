@@ -48,7 +48,7 @@ class CardController extends Controller
             $this->index();
         }
 
-        return view('cards.register');
+        return view('cards.register', ['type' => 'register']);
     }
 
     /**

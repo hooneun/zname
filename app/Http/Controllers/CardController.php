@@ -79,22 +79,22 @@ class CardController extends Controller
 
         $this->validator($request->all())->validate();
 
-        $imagePaths = $this->imageCreates($userId, $request->only(Detail::$IMAGE_COLUMNS));
-        $req = $request->all();
-
-        foreach ($imagePaths as $key => $path) {
-            $req[$key] = $path;
-        }
-
-        $card = DB::transaction(function () use ($userId, $req) {
-            $card = Card::create([
-                'user_id' => $userId
-            ]);
-
-            $req['card_id'] = $card->id;
-
-            return Detail::create($req);
-        });
+//        $imagePaths = $this->imageCreates($userId, $request->only(Detail::$IMAGE_COLUMNS));
+//        $req = $request->all();
+//
+//        foreach ($imagePaths as $key => $path) {
+//            $req[$key] = $path;
+//        }
+//
+//        $card = DB::transaction(function () use ($userId, $req) {
+//            $card = Card::create([
+//                'user_id' => $userId
+//            ]);
+//
+//            $req['card_id'] = $card->id;
+//
+//            return Detail::create($req);
+//        });
 
         return view('cards.register', compact('card'));
     }
@@ -199,33 +199,33 @@ class CardController extends Controller
 
         $id = Auth::id();
 
-         Storage::delete('/public/cards/' . $id . '/' . $request->delete_file);
+        Storage::delete('/public/cards/' . $id . '/' . $request->delete_file);
     }
 
     public function validator(array $data)
     {
         return Validator::make($data, [
-            'main_image' => ['required', 'image'],
-            'main_profile' => ['required', 'image'],
-            'name' => ['required'],
-            'job' => ['required', 'between:2,30'],
-            'address' => ['required', 'between:1, 30'],
-            'phone' => ['required'],
-            'message' => ['between:5,50'],
-            'email' => ['email'],
-            'cafe' => ['active_url'],
-            'facebook' => ['active_url'],
-            'twitter' => ['active_url'],
-            'instagram' => ['active_url'],
-            'band' => ['active_url'],
-            'kakao' => ['active_url'],
-            'ad_image_top' => ['image'],
-            'ad_content_top' => ['between:5,200'],
-            'ad_image_middle' => ['image'],
-            'ad_content_middle' => ['between:5,200'],
-            'ad_image_bottom' => ['image'],
-            'ad_content_bottom' => ['between:5,200'],
-        ],[],[
+            'main_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'main_profile' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'name' => ['required', 'between:1,15'],
+            'job' => ['required', 'between:2,20'],
+            'address' => ['required', 'between:1,20'],
+            'phone' => ['required', 'regex:/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/'],
+            'message' => ['between:5,30'],
+            'email' => ['nullable', 'email'],
+            'cafe' => ['nullable', 'active_url'],
+            'facebook' => ['nullable', 'active_url'],
+            'twitter' => ['nullable', 'active_url'],
+            'instagram' => ['nullable', 'active_url'],
+            'band' => ['nullable', 'active_url'],
+            'kakao' => ['nullable', 'active_url'],
+            'ad_image_top' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'ad_content_top' => ['nullable', 'between:5,200'],
+            'ad_image_middle' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'ad_content_middle' => ['nullable', 'between:5,200'],
+            'ad_image_bottom' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
+            'ad_content_bottom' => ['nullable', 'between:5,200'],
+        ], [], [
             'main_image' => '메인 이미지',
             'main_profile' => '프로필 사진',
             'name' => '이름',

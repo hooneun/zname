@@ -7,39 +7,34 @@
 
 @section('content')
     <main id="card-content">
-        <form method="post" action="{{ route('card.register') }}">
+        <form method="post" id="js-register-form" action="{{ route('cards.register') }}" enctype="multipart/form-data">
             @csrf
             <div id="zname_total_wrapper">
                 <div id="profile_section">
                     <div id="rep_img">
-                        <input id="main_pic" type="file" name="main_image" onchange="readURL(this);"/>
+                        <input id="main_pic" type="file" name="main_image" value="{{ old('main_image') }}" onchange="readURL(this);"/>
                         <img onclick="click_to_change('main_pic')" src="{{ asset('images/card/main_img.png') }}">
                     </div>
                     <div id="main_card_section">
                         <div id="main_left_section">
-                            <input id="main_photo" type="file" name="main_profile" onchange="readURL(this);"/>
+                            <input id="main_photo" type="file" name="main_profile" value="{{ old('main_profile') }}" onchange="readURL(this);"/>
                             <img onclick="click_to_change('main_photo')"
                                  src="{{ asset('images/card/myprofilephoto.png') }}">
                         </div>
                         <div id="main_right_section">
-                            <input id="rep_name" type="text" placeholder="이름 (필수, 최대15자)" name="name" required
-                                   minlength="2" maxlength="15" size="16">
+                            <input id="rep_name" type="text" placeholder="이름 (필수, 최대15자)" name="name" value="{{ old('name') }}" required minlength="2" maxlength="15" size="16">
                             <div class="speficif_spec">
                                 <div class="spec_section">
                                     <div class="img_wrapper"><img src="{{ asset('images/card/myjob.png') }}"></div>
-                                    <input id="rep_job" type="text" placeholder="직업 (필수, 최대20자)" name="job" required
-                                           minlength="1" maxlength="20" size="16">
+                                    <input id="rep_job" type="text" placeholder="직업 (필수, 최대20자)" name="job" value="{{ old('job') }}" required minlength="1" maxlength="20" size="16">
                                 </div>
                                 <div class="spec_section">
                                     <div class="img_wrapper"><img src="{{ asset('images/card/myaddress.png') }}"></div>
-                                    <input id="rep_address" type="text" placeholder="주소 (필수, 최대20자)" name="address"
-                                           required minlength="1" maxlength="20" size="16">
+                                    <input id="rep_address" type="text" placeholder="주소 (필수, 최대20자)" name="address" value="{{ old('address') }}" required minlength="1" maxlength="20" size="16">
                                 </div>
                                 <div class="spec_section">
                                     <div class="img_wrapper"><img src="{{ asset('images/card/myphone.png') }}"></div>
-                                    <input id="rep_contact" type="tel" placeholder="연락처 (필수, 예: 010-0000-0000)"
-                                           pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" required minlength="2"
-                                           maxlength="20" size="16">
+                                    <input id="rep_contact" type="tel" placeholder="연락처 (필수, 예: 010-0000-0000)" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" value="{{ old('phone') }}" required minlength="2" maxlength="20" size="16">
                                 </div>
                             </div>
                         </div>
@@ -48,44 +43,36 @@
                         <div class="speficif_spec">
                             <div class="spec_section">
                                 <div class="img_wrapper"><img src="{{ asset('images/card/mymessage.png') }}"></div>
-                                <input id="today_comment" type="text" placeholder="오늘의 한마디 (선택, 최대 30자)" name="message"
-                                       required minlength="2" maxlength="30" size="16">
+                                <input id="today_comment" type="text" placeholder="오늘의 한마디 (선택, 최대 30자)" name="message" value="{{ old('message') }}" minlength="2" maxlength="30" size="16">
                             </div>
                             <div class="spec_section">
                                 <div class="img_wrapper"><img src="{{ asset('images/card/myemail.png') }}"></div>
-                                <input id="rep_email" type="eamil" placeholder="이메일 (선택)" name="email" required
-                                       minlength="2" maxlength="20" size="16">
+                                <input id="rep_email" type="eamil" placeholder="이메일 (선택)" name="email" value="{{ old('email') }}" minlength="2" maxlength="20" size="16">
                             </div>
                             <div class="spec_section">
                                 <div class="img_wrapper"><img src="{{ asset('images/card/mycafe.png') }}"></div>
-                                <input id="rep_cafe" type="text" placeholder="카페 또는 블로그 (선택)" name="cafe" required
-                                       minlength="2" maxlength="20" size="16">
+                                <input id="rep_cafe" type="text" placeholder="카페 또는 블로그 (선택)" name="cafe" value="{{ old('cafe') }}" minlength="2" maxlength="20" size="16">
                             </div>
                         </div>
                     </div>
                     <div id="social_link">
-                        <input id="facebook_link" type="url" placeholder="https://페이스북링크.com" name="facebook"
-                               pattern="https://.*" minlength="2" maxlength="20" size="16">
+                        <input id="facebook_link" type="url" placeholder="https://페이스북링크.com" name="facebook" value="{{ old('facebook') }}" pattern="https://.*" minlength="2" maxlength="20" size="16">
                         <a href="">
                             <img src="{{ asset('images/card/socialfacebookicon.png') }}">
                         </a>
-                        <input id="twitter_link" type="url" placeholder="https://트위터링크.com" name="twitter" minlength="2"
-                               maxlength="20" size="16">
+                        <input id="twitter_link" type="url" placeholder="https://트위터링크.com" name="twitter" value="{{ old('twitter') }}" minlength="2" maxlength="20" size="16">
                         <a href="">
                             <img src="{{ asset('images/card/socialtwittericon.png') }}">
                         </a>
-                        <input id="instagram_link" type="url" placeholder="https://인스타그램링크.com" name="instagram"
-                               minlength="2" maxlength="20" size="16">
+                        <input id="instagram_link" type="url" placeholder="https://인스타그램링크.com" name="instagram" value="{{ old('instagram') }}" minlength="2" maxlength="20" size="16">
                         <a href="">
                             <img src="{{ asset('images/card/socialinstagramicon.png') }}">
                         </a>
-                        <input id="band_link" type="url" placeholder="https://네이버밴드링크.com" name="band" minlength="2"
-                               maxlength="20" size="16">
+                        <input id="band_link" type="url" placeholder="https://네이버밴드링크.com" name="band" value="{{ old('band') }}" minlength="2" maxlength="20" size="16">
                         <a href="">
                             <img src="{{ asset('images/card/socialbandicon.png') }}">
                         </a>
-                        <input id="kakao_link" type="url" placeholder="https://카카오톡링크.com" name="kakao" minlength="2"
-                               maxlength="20" size="16">
+                        <input id="kakao_link" type="url" placeholder="https://카카오톡링크.com" name="kakao" value="{{ old('kakao') }}" minlength="2" maxlength="20" size="16">
                         <a href="">
                             <img src="{{ asset('images/card/socialkakaoicon.png') }}">
                         </a>
@@ -117,8 +104,27 @@
                     </div>
                     @if ($type === 'register')
                         <div>
-                            <button class="btn btn-primary">등록</button>
+                            <button type="button" class="btn btn-primary" id="js-register-btn">등록</button>
                         </div>
+                        @section('script')
+                        <script>
+                            const REGISTER_BTN = document.getElementById('js-register-btn');
+                            const REGISTER_FORM = document.getElementById('js-register-form');
+
+                            REGISTER_BTN.onclick = function () {
+                                const formData = new FormData(REGISTER_FORM);
+
+                                window.axios.post('/cards/register', formData)
+                                    .then(function (response) {
+
+                                    })
+                                    .catch(function (errors) {
+                                        const error = errors.response.data.errors;
+                                        alert(error[Object.keys(error)[0]][0]);
+                                    });
+                            };
+                        </script>
+                        @endsection
                     @endif
                 </div>
             </div>

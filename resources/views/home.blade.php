@@ -83,7 +83,10 @@
         @if (config('app.env') === 'production')
         setTimeout(function () {
             START_IMG.classList.add('fade');
-        }, 2000);
+            setTimeout(function () {
+                START_IMG.style.display = 'none';
+            }, 2000)
+        }, 1000);
         @else
             START_IMG.style.display = 'none';
         @endif

@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', 'CardController@index');
+Route::get('/', 'CardController@index')->name('home');
 
 Auth::routes();
 
+
 Route::get('/cards/register', 'CardController@showRegistrationForm');
 Route::post('/cards/register', 'CardController@store')->name('cards.register');
+Route::get('/cards/{id}/edit', 'CardController@edit')->name('cards.edit');
+Route::post('/cards/{id}/update', 'CardController@update')->name('cards.update');
+Route::get('/cards/{id}/delete', 'CardController@destroy')->name('cards.delete');
+Route::get('/cards/{id}', 'CardController@show')->name('cards.view');

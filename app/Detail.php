@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Detail extends Model
 {
@@ -13,4 +14,34 @@ class Detail extends Model
     ];
 
     protected $guarded = ['id'];
+
+	public function getMainImageAttribute($value)
+	{
+		return !empty($value) ? Storage::url($value) : '';
+	}
+
+	public function getMainProfileAttribute($value)
+	{
+		return !empty($value) ? Storage::url($value) : '';
+	}
+
+	public function getAdImageTopAttribute($value)
+	{
+		return !empty($value) ? Storage::url($value) : '';
+	}
+
+	public function getAdImageMiddleAttribute($value)
+	{
+		return !empty($value) ? Storage::url($value) : '';
+	}
+
+	public function getAdImageBottomAttribute($value)
+	{
+		return !empty($value) ? Storage::url($value) : '';
+	}
+
+    public function card()
+    {
+    	return $this->belongsTo('App\Card');
+    }
 }

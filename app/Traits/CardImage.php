@@ -14,6 +14,7 @@ trait CardImage
         $paths = [];
         foreach ($data as $name => $_data) {
             if (empty($_data)) {
+            	$paths[$name] = null;
                 continue;
             }
             $paths[$name] = Storage::put('/public/cards/'. $id, $_data);

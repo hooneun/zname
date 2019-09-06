@@ -8,7 +8,7 @@
 <div class="container">
     @auth
         <div class="row">
-            <div>{{ __('Card List') }}</div>
+            <div class="pl-2">명함 리스트</div>
             <table class="table table-striped">
                 <thead>
                 <tr>

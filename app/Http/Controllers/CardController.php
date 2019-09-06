@@ -85,8 +85,12 @@ class CardController extends Controller
 
 		$req = $request->all();
 
-		foreach ($imagePaths as $key => $path) {
-			$req[$key] = $path;
+		foreach (Detail::$IMAGE_COLUMNS as $key) {
+			if (empty($imagePaths[$key])) {
+				$req[$key] = null;
+				continue;
+			}
+			$req[$key] = $imagePaths[$key];
 		}
 
 		$card = DB::transaction(function () use ($userId, $req) {

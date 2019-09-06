@@ -161,3 +161,13 @@ function completeCA() {
     kaATag.target = "_blank"
     kaLink.classList.remove("show")
 }
+
+//다음주소 호출
+function openAddress() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            console.log(data)
+            document.getElementById("rep_address").setAttribute("value", data.address);
+        }
+    }).open();
+}

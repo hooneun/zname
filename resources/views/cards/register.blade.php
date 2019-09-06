@@ -5,6 +5,13 @@
     @endauth
 @endsection
 
+@section('og')
+    <meta property="og:title" content="{{ $card->name }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ $card->message }}">
+    <meta property="og:image" content="{{ $card->main_profile }}">
+@endsection
 @section('content')
     <main id="card-content">
         <form method="post" id="js-register-form" action="{{ $type === 'register' ? route('cards.register') : route('cards.update', ['id' => $card->id], false) }}" enctype="multipart/form-data">
@@ -42,7 +49,7 @@
                                 </div>
                                 <div class="spec_section">
                                     <div class="img_wrapper"><i class="fas fa-map-marker-alt"></i></div>
-                                    <input id="rep_address" type="text" placeholder="주소 (필수, 최대15자)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}" required minlength="1" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                    <input id="rep_address" onclick="openAddress()" type="text" placeholder="주소 (필수, 최대15자)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}"  required minlength="1" maxlength="15" size="16">
                                 </div>
                                 <div class="spec_section">
                                     <div class="img_wrapper"><i class="fas fa-mobile-alt"></i></div>
@@ -124,7 +131,7 @@
                                     <button id="complete_kakao" type="button" onclick="completeCA();">완료</button>
                                 </div>
                             </div>
-                            @if ($type === 'register' || $type === 'view')
+                            @if ($type === 'register')
                             <div class="admin_only social_control">상단 버튼을 눌러 링크를 변경해주세요.(관리자만 보입니다.)</div>
                             @endif
                         @endif

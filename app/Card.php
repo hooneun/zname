@@ -16,6 +16,11 @@ class Card extends Model
 		return date('y.m.d H:m', strtotime($value));
     }
 
+	public function getUpdatedAtAttribute($value)
+	{
+		return date('y.m.d H:m', strtotime($value));
+	}
+
     public function user()
     {
         return $this->belongsTo('App\User');

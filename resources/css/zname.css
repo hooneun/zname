@@ -34,7 +34,8 @@
 }
 .loader_background > img {
     width: 70%;
-    margin-bottom: 50%;
+    display: flex;
+    margin: auto;
 }
 
 

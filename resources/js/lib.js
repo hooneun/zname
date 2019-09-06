@@ -166,7 +166,6 @@ function completeCA() {
 function openAddress() {
     new daum.Postcode({
         oncomplete: function(data) {
-            console.log(data)
             document.getElementById("rep_address").setAttribute("value", data.address);
         }
     }).open();

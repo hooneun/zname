@@ -13,7 +13,9 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}
+                                    <span class="text-danger align-middle">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -30,7 +32,9 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }} (8글자 이상)
+                                    <span class="text-danger align-middle">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -47,7 +51,9 @@
 
                             <div class="form-group row">
                                 <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}
+                                    <span class="text-danger align-middle">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -56,7 +62,9 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}
+                                    <span class="text-danger align-middle">*</span>
+                                </label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -127,6 +135,7 @@
                                 <div class="col-md-6">
                                     <input id="address" type="text"
                                            class="form-control @error('address') is-invalid @enderror" name="address"
+                                           onclick="openAddress()"
                                            value="{{ old('address') }}" required autocomplete="address" autofocus>
 
                                     @error('address')
@@ -150,4 +159,15 @@
             </div>
         </div>
     </div>
+    @section('script')
+        <script>
+            function openAddress() {
+                new daum.Postcode({
+                    oncomplete: function (data) {
+                        document.getElementById("address").setAttribute("value", data.address);
+                    }
+                }).open();
+            }
+        </script>
+    @endsection
 @endsection

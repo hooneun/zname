@@ -5,6 +5,7 @@
     @endauth
 @endsection
 
+@if ($type === 'view')
 @section('og')
     <meta property="og:title" content="{{ $card->name }}">
     <meta property="og:url" content="{{ url()->current() }}">
@@ -12,6 +13,8 @@
     <meta property="og:description" content="{{ $card->message }}">
     <meta property="og:image" content="{{ $card->main_profile }}">
 @endsection
+@endif
+
 @section('content')
     <main id="card-content">
         <form method="post" id="js-register-form" action="{{ $type === 'register' ? route('cards.register') : route('cards.update', ['id' => $card->id], false) }}" enctype="multipart/form-data">
@@ -19,7 +22,7 @@
             <div id="zname_total_wrapper">
                 @if ($type === 'register' || $type === 'edit')
                 <div id="card_title">
-                    <input id="card_type" type="text" name="title" value="{{ !empty($card->title) ? $card->title : '' }}" placeholder="(ZNAME 제목을 입력해주세요)" />
+                    <input id="card_type" type="text" name="title" value="{{ !empty($card->title) ? $card->title : '' }}" placeholder="(사용하실 명함이름을 임력해주세요 (관리자만 보입니다).)" />
                 </div>
                 @endif
                 <div id="profile_section">

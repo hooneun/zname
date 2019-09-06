@@ -8,14 +8,14 @@
 <div class="container">
     @auth
         <div class="row">
-            <div class="pl-2">명함 리스트</div>
+            <div class="pl-3">내 명함 리스트</div>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">제목</th>
-                    <th scope="col">생성 시간</th>
-                    <th scope="col">-</th>
+                    <th scope="col">시간</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -23,7 +23,7 @@
                     <tr>
                         <td>{{ $list->id }}</td>
                         <td>{{ $list->title }}</td>
-                        <td>{{ $list->created_at }}</td>
+                        <td>{{ $list->updated_at }}</td>
                         <td>
                             <a class="btn btn-info mb-1" href="{{ route('cards.edit', ['id' => $list->details->id], false) }}">수정</a>
                             <br>
@@ -45,14 +45,10 @@
                 @isset($message)
                     <span class="text-danger">{{ $message }}</span>
                 @endisset
-                <a href="{{ route('cards.register') }}" class="btn btn-primary">ZNAME 생성</a>
+                <a href="{{ route('cards.register') }}" class="btn btn-primary">명함 만들기</a>
             </div>
         </div>
     @else
-        <div class="row mt-5">
-            <div class="col text-center about"><h2>{{ __('About') }}</h2></div>
-        </div>
-        <hr class="main_hr"/>
         <div class="row">
             <div class="col">
                 <img src="{{ asset('images/main/main.png') }}" class="img-fluid w-100">
@@ -81,12 +77,17 @@
         const START_IMG = document.getElementById('js-startImg');
 
         @if (config('app.env') === 'production')
-        setTimeout(function () {
-            START_IMG.classList.add('fade');
+        if (!localStorage.getItem('START_LOGO')) {
+            localStorage.setItem('START_LOGO', true);
             setTimeout(function () {
-                START_IMG.style.display = 'none';
-            }, 2000)
-        }, 1000);
+                START_IMG.classList.add('fade');
+                setTimeout(function () {
+                    START_IMG.style.display = 'none';
+                }, 2000)
+            }, 1000);
+        } else {
+            START_IMG.style.display = 'none';
+        }
         @else
             START_IMG.style.display = 'none';
         @endif

@@ -79,7 +79,7 @@ i {
 
 #add_video_wrapper {
     display: flex;
-    width: 93vw;
+    width: 94vw;
     flex-direction: column;
     margin-bottom: 20px;
 }
@@ -220,8 +220,7 @@ i {
 #social_link {
     display: flex;
     justify-content: center;
-    margin: 10px;
-    margin-bottom: 15px;
+    margin: 0 10px 15px;
     flex-direction: column;
     width: 94vw;
     max-width: 400px;
@@ -373,7 +372,7 @@ input[type="url"] {
 }
 
 #add_youtube {
-    width: 93vw;
+    width: 94vw;
     border: 1px solid #000000;
     height: 170px;
     padding: 10px;

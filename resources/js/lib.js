@@ -168,11 +168,13 @@ function completeCA() {
 
 //다음주소 호출
 function openAddress() {
-    new daum.Postcode({
-        oncomplete: function(data) {
-            document.getElementById("rep_address").innerText = data.address;
-        }
-    }).open();
+    if (confirm('자동 주소 찾기를 사용하시겠습니까?')) {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                document.getElementById("rep_address").innerText = data.address;
+            }
+        }).open();
+    }
 }
 
 function loadingOn() {

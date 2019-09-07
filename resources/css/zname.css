@@ -11,6 +11,10 @@ a:active, a:hover {
     color: #000000 !important;
 }
 
+input:disabled, textarea:disabled {
+    opacity: 1;
+}
+
 .about {
     font-family: 'Slabo 27px', serif;
     font-weight: normal;

@@ -46,8 +46,8 @@ class CardController extends Controller
 			->count();
 
 		if ($cardCount >= 3) {
-			$this->message = 'Card Created Over.';
-			$this->index();
+			$this->message = '최대 명함 제작 개수는 3개 입니다.';
+			return $this->index();
 		}
 
 		return view('cards.register', ['type' => 'register']);
@@ -75,8 +75,8 @@ class CardController extends Controller
 		$cardCount = Card::whereUserId($userId)->count();
 
 		if ($cardCount >= 3) {
-			$this->message = 'Card Created Over.';
-			$this->index();
+			$this->message = '최대 명함 제작 개수는 3개 입니다.';
+			return $this->index();
 		}
 
 		$this->validator($request->all())->validate();

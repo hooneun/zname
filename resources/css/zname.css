@@ -76,6 +76,8 @@ i {
 #add_video_wrapper {
     display: flex;
     width: 93vw;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 #add_video_wrapper button {
@@ -90,8 +92,8 @@ i {
 }
 
 #video_iframe_section iframe {
-    width: calc(100vw - 26px);
-    height: 30vh;
+    width: calc(100vw - 22px);
+    height: 28vh;
     display: none;
 }
 

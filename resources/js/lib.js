@@ -31,11 +31,11 @@ function changeTag() {
         vidWrapper.classList.add("show")
     }
 
-    if (vidImg.classList.contains("hide")) {
-        vidImg.classList.remove("hide")
-    } else {
+    // if (vidImg.classList.contains("hide")) {
+    //     vidImg.classList.remove("hide")
+    // } else {
         vidImg.classList.add("hide")
-    }
+    // }
 }
 
 function completeAddvideo() {
@@ -45,6 +45,8 @@ function completeAddvideo() {
     youtubeEmbed.value = url;
     vidWrapper.classList.remove("show")
     vidIframe.classList.add("show")
+    vidImg.classList.remove("hide")
+    vidImg.classList.add("show")
 }
 
 //소셜미디어 링크넣는구간

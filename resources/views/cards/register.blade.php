@@ -102,51 +102,51 @@
                     <div id="social_link">
                         <div id="button_wrapper">
                             @if ($type === 'view' && isset($card->facebook) || $type === 'register' || $type === 'edit')
-                            <a id="facebook_url" href="{{ !empty($card->facebook) ? $card->facebook : 'javascript:void(0)' }}">
+                            <a id="facebook_url" href="{{ !empty($card->facebook) ? $card->facebook : 'javascript:void(0)' }}" {{ !empty($card->facebook) ? 'target="_blank"' : '' }}>
                                 <img src="{{ asset('images/card/socialfacebookicon.svg') }}" onclick="changeFB();">
                             </a>
                             @endif
                             @if ($type === 'view' && isset($card->twitter) || $type === 'register' || $type == 'edit')
-                            <a id="twitter_url" href="{{ !empty($card->twitter) ? $card->twitter : 'javascript:void(0)' }}">
+                            <a id="twitter_url" href="{{ !empty($card->twitter) ? $card->twitter : 'javascript:void(0)' }}" {{ !empty($card->twitter) ? 'target="_blank"' : '' }}>
                                 <img src="{{ asset('images/card/socialtwittericon.svg') }}" onclick="changeTW();">
                             </a>
                             @endif
                             @if ($type === 'view' && !blank($card->instagram) || $type === 'register' || $type === 'edit')
-                            <a id="instagram_url" href="{{ !empty($card->instagram) ? $card->instagram : 'javascript:void(0)' }}">
+                            <a id="instagram_url" href="{{ !empty($card->instagram) ? $card->instagram : 'javascript:void(0)' }}" {{ !empty($card->instagram) ? 'target="_blank"' : '' }}>
                                 <img src="{{ asset('images/card/socialinstagramicon.svg') }}" onclick="changeIN();">
                             </a>
                             @endif
                             @if ($type === 'view' && !blank($card->band) || $type === 'register' || $type === 'edit')
-                            <a id="band_url" href="{{ !empty($card->band) ? $card->band : 'javascript:void(0)' }}">
+                            <a id="band_url" href="{{ !empty($card->band) ? $card->band : 'javascript:void(0)' }}" {{ !empty($card->band) ? 'target="_blank"' : '' }}>
                                 <img src="{{ asset('images/card/socialbandicon.svg') }}" onclick="changeBA();">
                             </a>
                             @endif
                             @if ($type === 'view' && !blank($card->kakao) || $type === 'register' || $type === 'edit')
-                            <a id="kakao_url" href="{{ !empty($card->kakao) ? $card->kakao : '#' }}">
+                            <a id="kakao_url" href="{{ !empty($card->kakao) ? $card->kakao : 'javascript:void(0)' }}"  {{ !empty($card->band) ? 'target="_blank"' : '' }}>
                                 <img src="{{ asset('images/card/socialkakaostory.svg') }}" onclick="changeKA();">
                             </a>
                             @endif
                         </div>
-                        @if ($type === 'register' || $type === 'view')
+                        @if ($type === 'register' || $type === 'edit')
                             <div id="add_link_wrapper">
                                 <div id="facebook_addlink">
-                                    <input id="facebook_link" type="url" placeholder="예) https://페이스북링크.com" name="facebook" pattern="https://.*" minlength="2" maxlength="20" size="16">
+                                    <input id="facebook_link" type="url" placeholder="예) https://페이스북링크.com" name="facebook" value="{{ !empty($card->facebook) ? $card->facebook : '' }}" pattern="https://.*" minlength="2" size="16">
                                     <button id="complete_facebook" type="button" onclick="completeFB();">완료</button>
                                 </div>
                                 <div id="twitter_addlink">
-                                    <input id="twitter_link" type="url" placeholder="예) https://트위터링크.com" name="twitter" minlength="2" maxlength="20" size="16">
+                                    <input id="twitter_link" type="url" placeholder="예) https://트위터링크.com" name="twitter" value="{{ !empty($card->twitter) ? $card->twitter : '' }}" minlength="2" size="16">
                                     <button id="complete_twitter" type="button" onclick="completeTW();">완료</button>
                                 </div>
                                 <div id="instagram_addlink">
-                                    <input id="instagram_link" type="url" placeholder="예) https://인스타그램링크.com" name="instagram" minlength="2" maxlength="20" size="16">
+                                    <input id="instagram_link" type="url" placeholder="예) https://인스타그램링크.com" name="instagram" value="{{ !empty($card->instagram) ? $card->instagram : '' }}" minlength="2" size="16">
                                     <button id="complete_instagram" type="button" onclick="completeIN();">완료</button>
                                 </div>
                                 <div id="band_addlink">
-                                    <input id="band_link" type="url" placeholder="예) https://네이버밴드링크.com" name="band" minlength="2" maxlength="20" size="16">
+                                    <input id="band_link" type="url" placeholder="예) https://네이버밴드링크.com" name="band" value="{{ !empty($card->band) ? $card->band : '' }}" minlength="2" size="16">
                                     <button id="complete_band" type="button" onclick="completeBA();">완료</button>
                                 </div>
                                 <div id="kakao_addlink">
-                                    <input id="kakao_link" type="url" placeholder="예) https://카카오스토리링크.com" name="kakao" minlength="2" maxlength="20" size="16">
+                                    <input id="kakao_link" type="url" placeholder="예) https://카카오스토리링크.com" name="kakao" value="{{ !empty($card->kakao) ? $card->kakao : '' }}" minlength="2" size="16">
                                     <button id="complete_kakao" type="button" onclick="completeCA();">완료</button>
                                 </div>
                             </div>
@@ -157,16 +157,16 @@
                     </div>
                     @if ($type === 'register' || $type === 'edit')
                         <div id="video_section">
+                            <div id="video_iframe_section">
+                                <iframe class="{{ !empty($card->youtube) ? 'd-block' : '' }}" width="560" height="315" frameborder="0" src="{{ !empty($card->youtube) ? $card->youtube : '' }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                </iframe>
+                            </div>
                             <div id="video_wrapper">
                                 <img id="lets_change_video" src="{{ asset('images/card/myyoutube.png') }}" onclick="changeTag()";>
                             </div>
                             <div id="add_video_wrapper">
                                 <textarea id="add_youtube" name="youtube" tyle="text" placeholder="유튜브 공유하기 링크를 넣어주세요."></textarea>
                                 <button id="complete_addyoutube" type="button" onclick="completeAddvideo()">완료</button>
-                            </div>
-                            <div id="video_iframe_section">
-                                <iframe width="560" height="315" frameborder="0" src="{{ !empty($card->youtube) ? $card->youtube : '' }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                </iframe>
                             </div>
                         </div>
                     @endif

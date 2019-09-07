@@ -1,5 +1,6 @@
 a:active, a:hover {
-    color: #ffffff;
+    color: #ffffff !important;
+    text-decoration: none !important;
 }
 
 .about {

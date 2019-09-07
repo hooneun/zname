@@ -65,9 +65,9 @@
                                 <div class="spec_section">
                                     <div class="img_wrapper"><i class="fas fa-map-marker-alt"></i></div>
                                     @if ($type === 'view')
-                                        <input id="rep_address" type="text" placeholder="주소 (필수, 최대15자)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}"  required minlength="1" maxlength="15" size="16" disabled>
+                                        <input id="rep_address" type="text" placeholder="주소 (필수, 최대15자)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}"  required minlength="1" size="16" disabled>
                                     @else
-                                    <input id="rep_address" onclick="openAddress()" type="text" placeholder="주소 (필수, 최대15자)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}"  required minlength="1" maxlength="15" size="16">
+                                    <input id="rep_address" onclick="openAddress()" type="text" placeholder="주소 (필수)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}"  required minlength="1" size="16">
                                     @endif
                                 </div>
                                 <div class="spec_section">

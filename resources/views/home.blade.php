@@ -22,7 +22,7 @@
                             <td>{{ $list->id }}</td>
                             <td>{{ $list->title }}</td>
                             <td>
-                                <button type="button" id="js-link_copy" class="js-link_copy btn btn-success mb-1"
+                                <button type="button" class="btn btn-success mb-1" onclick="linkCopy(this)"
                                         value="{{ url('cards', ['id' => $list->id], false) }}">주소복사
                                 </button>
                                 <a class="btn btn-info mb-1"
@@ -93,17 +93,11 @@
             START_IMG.style.display = 'none';
         @endif
 
-        document.querySelector(".js-link_copy").addEventListener("click", function () {
-//            var tempElem = document.createElement('textarea');
-//            tempElem.value = this.value;
-//            document.body.appendChild(tempElem);
-//
-//            tempElem.select();
-//            document.execCommand("copy");
-//            document.body.removeChild(tempElem);
-            Copy(this.value);
+        function linkCopy (obj) {
+            Copy(obj.value);
+
             alert('복사되었습니다.');
-        });
+        }
 
         @if (!empty($list->id))
             document.querySelector('#js-card_delete').addEventListener("click", function () {

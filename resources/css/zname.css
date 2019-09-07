@@ -497,7 +497,7 @@ input[type="url"] {
 #updowntoggle {
     display: flex;
     position: fixed;
-    bottom: 60px;
+    bottom: 40px;
     right: 0px;
     flex-direction: column;
     z-index: 99;
@@ -508,7 +508,7 @@ input[type="url"] {
     height: 29px;
     background-image: radial-gradient(circle at 10% 20%, rgb(142, 224, 251) 0%, rgb(255, 121, 225) 100.7%);
     border-radius: 20px 0 0 20px;
-    margin: 6px 0;
+    margin: 9px 0;
     justify-content: center;
     align-items: center;
     filter: drop-shadow(1px 1px 3px #85878a);

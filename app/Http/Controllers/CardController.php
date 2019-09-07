@@ -215,8 +215,8 @@ class CardController extends Controller
 	{
 		return Validator::make($data, [
 			'title' => ['required', 'between:1,30'],
-			'main_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
-			'main_profile' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'main_image' => ['required', 'file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'main_profile' => ['required', 'file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
 			'name' => ['required', 'between:1,15'],
 			'job' => ['required', 'between:2,15'],
 			'address' => ['required'],
@@ -229,11 +229,11 @@ class CardController extends Controller
 			'instagram' => ['nullable', 'active_url'],
 			'band' => ['nullable', 'active_url'],
 			'kakao' => ['nullable', 'active_url'],
-			'ad_image_top' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'ad_image_top' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
 			'ad_content_top' => ['nullable', 'between:5,200'],
-			'ad_image_middle' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'ad_image_middle' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
 			'ad_content_middle' => ['nullable', 'between:5,200'],
-			'ad_image_bottom' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'ad_image_bottom' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
 			'ad_content_bottom' => ['nullable', 'between:5,200'],
 		], [], [
 			'title' => 'ZNAME 제목',
@@ -253,8 +253,8 @@ class CardController extends Controller
 	{
 		return Validator::make($data, [
 			'title' => ['required', 'between:1,30'],
-			'main_image' => ['image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
-			'main_profile' => ['image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'main_image' => ['file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'main_profile' => ['file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
 			'name' => ['required', 'between:1,15'],
 			'job' => ['required', 'between:2,15'],
 			'address' => ['required'],
@@ -267,11 +267,11 @@ class CardController extends Controller
 			'instagram' => ['nullable', 'active_url'],
 			'band' => ['nullable', 'active_url'],
 			'kakao' => ['nullable', 'active_url'],
-			'ad_image_top' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'ad_image_top' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
 			'ad_content_top' => ['nullable', 'between:5,200'],
-			'ad_image_middle' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'ad_image_middle' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
 			'ad_content_middle' => ['nullable', 'between:5,200'],
-			'ad_image_bottom' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,heic'],
+			'ad_image_bottom' => ['nullable', 'file', 'mimes:jpeg,png,jpg,gif,svg,heic'],
 			'ad_content_bottom' => ['nullable', 'between:5,200'],
 		], [], [
 			'title' => 'ZNAME 제목',

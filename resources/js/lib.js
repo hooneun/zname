@@ -34,7 +34,7 @@ function changeTag() {
     // if (vidImg.classList.contains("hide")) {
     //     vidImg.classList.remove("hide")
     // } else {
-        vidImg.classList.add("hide")
+    //     vidImg.classList.add("hide")
     // }
 }
 
@@ -43,10 +43,10 @@ function completeAddvideo() {
     const url = "//www.youtube.com/embed/" + sliced[1];
     changedURL.src = url;
     youtubeEmbed.value = url;
-    vidWrapper.classList.remove("show")
+    // vidWrapper.classList.remove("show")
     vidIframe.classList.add("show")
-    vidImg.classList.remove("hide")
-    vidImg.classList.add("show")
+    vidImg.classList.remove("show")
+    vidImg.classList.add("hide")
 }
 
 //소셜미디어 링크넣는구간
@@ -170,7 +170,15 @@ function completeCA() {
 function openAddress() {
     new daum.Postcode({
         oncomplete: function(data) {
-            document.getElementById("rep_address").setAttribute("value", data.address);
+            document.getElementById("rep_address").innerText = data.address;
         }
     }).open();
+}
+
+function loadingOn() {
+    document.getElementById('loading').style.display = 'block';
+}
+
+function loadingOff() {
+    document.getElementById('loading').style.display = 'none';
 }

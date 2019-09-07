@@ -219,7 +219,7 @@ class CardController extends Controller
 			'main_profile' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
 			'name' => ['required', 'between:1,15'],
 			'job' => ['required', 'between:2,15'],
-			'address' => ['required'],
+			'address' => ['nullable', 'between:1, 50'],
 			'phone' => ['required', 'regex:/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/'],
 			'message' => ['nullable', 'between:5,25'],
 			'email' => ['nullable', 'email'],
@@ -246,6 +246,17 @@ class CardController extends Controller
 			'message' => '오늘의 한마디',
 			'email' => '이메일',
 			'cafe' => '카페 또는 블로그',
+			'facebook' => '페이스북',
+			'twitter' => '트위터',
+			'instagram' => '인스타그램',
+			'band' => '밴드',
+			'kakao' => '카카오',
+			'ad_image_top' => '광고이미지1',
+			'ad_content_top' => '광고문구1',
+			'ad_image_middle' => '광고이미지2',
+			'ad_content_middle' => '광고문구2',
+			'ad_image_bottom' => '광고이미지3',
+			'ad_content_bottom' => '광고문구3',
 		]);
 	}
 
@@ -257,7 +268,7 @@ class CardController extends Controller
 			'main_profile' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
 			'name' => ['required', 'between:1,15'],
 			'job' => ['required', 'between:2,15'],
-			'address' => ['required'],
+			'address' => ['nullable', 'between:1, 50'],
 			'phone' => ['required', 'regex:/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/'],
 			'message' => ['nullable', 'between:5,25'],
 			'email' => ['nullable', 'email'],
@@ -284,6 +295,17 @@ class CardController extends Controller
 			'message' => '오늘의 한마디',
 			'email' => '이메일',
 			'cafe' => '카페 또는 블로그',
+			'facebook' => '페이스북',
+			'twitter' => '트위터',
+			'instagram' => '인스타그램',
+			'band' => '밴드',
+			'kakao' => '카카오',
+			'ad_image_top' => '광고이미지1',
+			'ad_content_top' => '광고문구1',
+			'ad_image_middle' => '광고이미지2',
+			'ad_content_middle' => '광고문구2',
+			'ad_image_bottom' => '광고이미지3',
+			'ad_content_bottom' => '광고문구3',
 		]);
 	}
 }

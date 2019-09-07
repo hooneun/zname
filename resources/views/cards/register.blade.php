@@ -62,18 +62,18 @@
                                     <div class="img_wrapper"><i class="fab fa-black-tie"></i></div>
                                     <input id="rep_job" type="text" placeholder="직업 (필수, 최대15자)" name="job" value="{{ !empty($card->job) ? $card->job : old('job') }}" required minlength="1" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                                 </div>
-                                <div class="spec_section">
-                                    <div class="img_wrapper"><i class="fas fa-map-marker-alt"></i></div>
-                                    @if ($type === 'view')
-                                        <input id="rep_address" type="text" placeholder="주소 (필수, 최대15자)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}"  required minlength="1" size="16" disabled>
-                                    @else
-                                    <input id="rep_address" onclick="openAddress()" type="text" placeholder="주소 (필수)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}"  required minlength="1" size="16">
-                                    @endif
-                                </div>
+
                                 <div class="spec_section">
                                     <div class="img_wrapper"><i class="fas fa-mobile-alt"></i></div>
                                     <input id="rep_contact" type="text" placeholder="연락처 (필수, 예: 010-0000-0000)" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" value="{{ !empty($card->phone) ? $card->phone : old('phone') }}" required minlength="2" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                                 </div>
+
+                                @if ($type === 'view' && !blank($card->email) || $type === 'register' || $type === 'edit')
+                                    <div class="spec_section">
+                                        <div class="img_wrapper"><i class="fas fa-envelope"></i></div>
+                                        <input id="rep_email" type="eamil" placeholder="이메일 (선택)" name="email" value="{{ !empty($card->email) ? $card->email : old('email') }}" minlength="2" maxlength="50" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -85,18 +85,20 @@
                                 <input id="today_comment" type="text" placeholder="오늘의 한마디 (선택, 최대 25자)" name="message" value="{{ !empty($card->message) ? $card->message : old('message') }}" minlength="2" maxlength="30" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                             </div>
                             @endif
-                            @if ($type === 'view' && !blank($card->email) || $type === 'register' || $type === 'edit')
-                            <div class="spec_section">
-                                <div class="img_wrapper"><i class="fas fa-envelope"></i></div>
-                                <input id="rep_email" type="eamil" placeholder="이메일 (선택)" name="email" value="{{ !empty($card->email) ? $card->email : old('email') }}" minlength="2" maxlength="50" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
-                            </div>
-                            @endif
                             @if ($type === 'view' && !blank($card->cafe) || $type === 'register' || $type === 'edit')
                             <div class="spec_section">
                                 <div class="img_wrapper"><i class="fas fa-mug-hot"></i></div>
                                 <input id="rep_cafe" type="text" placeholder="카페 또는 블로그 (선택)" name="cafe" value="{{ !empty($card->cafe) ? $card->cafe : old('cafe') }}" minlength="2" ize="16" {{ $type === 'view' ? 'disabled' : '' }}>
                             </div>
                             @endif
+                                <div class="spec_section">
+                                    <div class="img_wrapper align_address"><i class="fas fa-map-marker-alt"></i></div>
+                                    @if ($type === 'view')
+                                        <textarea id="rep_address" type="text" placeholder="주소 (선택)" name="address" required minlength="1" size="16" disabled>{{ !empty($card->address) ? trim($card->address) : old('address') }}</textarea>
+                                    @else
+                                        <textarea id="rep_address" onkeyup="auto_grow(this)" onclick="openAddress()" type="text" placeholder="주소 (선택)" name="address"  required minlength="1" size="16">{{ !empty($card->address) ? trim($card->address) : old('address') }}</textarea>
+                                    @endif
+                                </div>
                         </div>
                     </div>
                     <div id="social_link">
@@ -161,10 +163,10 @@
                                 <iframe class="{{ !empty($card->youtube) ? 'd-block' : '' }}" width="560" height="315" frameborder="0" src="{{ !empty($card->youtube) ? $card->youtube : '' }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                                 </iframe>
                             </div>
-                            <div id="video_wrapper">
+                            <div id="video_wrapper" class="{{ !empty($card->youtube) ? 'hide' : '' }}">
                                 <img id="lets_change_video" src="{{ asset('images/card/myyoutube.png') }}" onclick="changeTag()";>
                             </div>
-                            <div id="add_video_wrapper">
+                            <div id="add_video_wrapper" class="{{ !empty($card->youtube) ? 'show zmt-10' : '' }}">
                                 <textarea id="add_youtube" name="youtube" tyle="text" placeholder="유튜브 공유하기 링크를 넣어주세요."></textarea>
                                 <button id="complete_addyoutube" type="button" onclick="completeAddvideo()">완료</button>
                             </div>
@@ -241,8 +243,11 @@
                                 const formData = new FormData(REGISTER_FORM);
                                 const url = document.getElementById('js-register-form').action;
 
+                                loadingOn();
+
                                 window.axios.post(url, formData)
                                     .then(function (response) {
+                                        loadingOff();
                                         @if ($type === 'register')
                                         alert('ZNAME 생성이 완료되었습니다.');
                                         @else
@@ -253,6 +258,7 @@
                                     })
                                     .catch(function (errors) {
                                         const error = errors.response.data.errors;
+                                        loadingOff();
                                         alert(error[Object.keys(error)[0]][0]);
                                     });
                             };

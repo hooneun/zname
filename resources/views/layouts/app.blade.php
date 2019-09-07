@@ -26,6 +26,7 @@
     @yield('head')
 </head>
 <body>
+<div id="loading" class="loading">Loading&#8230;</div>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">

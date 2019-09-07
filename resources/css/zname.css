@@ -4,6 +4,10 @@ a:active, a:hover {
 }
 
 #main_card_section input, #main_sub_section input {
+    background: none;
+}
+
+#main_card_section input::placeholder, #main_sub_section input::placeholder {
     color: #000000 !important;
 }
 

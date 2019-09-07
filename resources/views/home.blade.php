@@ -96,6 +96,8 @@
             tempElem.select();
             document.execCommand("copy");
             document.body.removeChild(tempElem);
+
+            alert('복사되었습니다.');
         });
     </script>
 @endsection

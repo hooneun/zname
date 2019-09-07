@@ -88,13 +88,13 @@
                             @if ($type === 'view' && !blank($card->email) || $type === 'register' || $type === 'edit')
                             <div class="spec_section">
                                 <div class="img_wrapper"><i class="fas fa-envelope"></i></div>
-                                <input id="rep_email" type="eamil" placeholder="이메일 (선택)" name="email" value="{{ !empty($card->email) ? $card->email : old('email') }}" minlength="2" maxlength="50" size="16">
+                                <input id="rep_email" type="eamil" placeholder="이메일 (선택)" name="email" value="{{ !empty($card->email) ? $card->email : old('email') }}" minlength="2" maxlength="50" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                             </div>
                             @endif
                             @if ($type === 'view' && !blank($card->cafe) || $type === 'register' || $type === 'edit')
                             <div class="spec_section">
                                 <div class="img_wrapper"><i class="fas fa-mug-hot"></i></div>
-                                <input id="rep_cafe" type="text" placeholder="카페 또는 블로그 (선택)" name="cafe" value="{{ !empty($card->cafe) ? $card->cafe : old('cafe') }}" minlength="2" ize="16">
+                                <input id="rep_cafe" type="text" placeholder="카페 또는 블로그 (선택)" name="cafe" value="{{ !empty($card->cafe) ? $card->cafe : old('cafe') }}" minlength="2" ize="16" {{ $type === 'view' ? 'disabled' : '' }}>
                             </div>
                             @endif
                         </div>
@@ -186,7 +186,7 @@
                             @elseif ($type === 'register' || $type === 'edit')
                             <input id="ad_sec1" type="file" name="ad_image_top" onchange="readURL(this);" value="{{ !empty($card->ad_image_top) ? asset($card->ad_image_top) : '' }}"/>
                             <img onclick="click_to_change('ad_sec1')" src="{{ !empty($card->ad_image_top) ? asset($card->ad_image_top) : asset('images/card/adsection1.png') }}">
-                            <textarea id="ad_contetn1" onkeyup="auto_grow(this)" name="ad_content_top" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요.">{{ !empty($card->ad_content_top) ? $card->ad_content_top : '' }}</textarea>
+                            <textarea id="ad_contetn1" onkeyup="auto_grow(this)" name="ad_content_top" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요." {{ $type === 'view' ? 'disabled' : '' }}>{{ !empty($card->ad_content_top) ? $card->ad_content_top : '' }}</textarea>
                             @endif
                         </div>
                         <div>
@@ -196,7 +196,7 @@
                             @elseif ($type === 'register' || $type === 'edit')
                             <input id="ad_sec2" type="file" name="ad_image_middle" onchange="readURL(this);" value="{{ !empty($card->ad_image_middle) ? asset($card->ad_image_middle) : '' }}"/>
                             <img onclick="click_to_change('ad_sec2')" src="{{ !empty($card->ad_image_middle) ? asset($card->ad_image_middle) : asset('images/card/adsection2.png') }}">
-                            <textarea id="ad_contetn2" onkeyup="auto_grow(this)" name="ad_content_middle" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요.">{{ !empty($card->ad_content_middle) ? $card->ad_content_middle : '' }}</textarea>
+                            <textarea id="ad_contetn2" onkeyup="auto_grow(this)" name="ad_content_middle" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요." {{ $type === 'view' ? 'disabled' : '' }}>{{ !empty($card->ad_content_middle) ? $card->ad_content_middle : '' }}</textarea>
                             @endif
                         </div>
                         <div>
@@ -206,7 +206,7 @@
                             @elseif ($type === 'register' || $type === 'edit')
                             <input id="ad_sec3" type="file" name="ad_image_bottom" onchange="readURL(this);" value="{{ !empty($card->ad_image_bottom) ? asset($card->ad_image_bottom) : '' }}"/>
                             <img onclick="click_to_change('ad_sec3')" src="{{ !empty($card->ad_image_bottom) ? asset($card->ad_image_bottom) : asset('images/card/adsection3.png') }}">
-                            <textarea id="ad_contetn3" onkeyup="auto_grow(this)" name="ad_content_bottom" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요.">{{ !empty($card->ad_content_bottom) ? $card->ad_content_bottom : '' }}</textarea>
+                            <textarea id="ad_contetn3" onkeyup="auto_grow(this)" name="ad_content_bottom" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요." {{ $type === 'view' ? 'disabled' : '' }}>{{ !empty($card->ad_content_bottom) ? $card->ad_content_bottom : '' }}</textarea>
                             @endif
                         </div>
                     </div>

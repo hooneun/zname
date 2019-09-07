@@ -29,7 +29,7 @@
             <div id="zname_total_wrapper">
                 @if ($type === 'register' || $type === 'edit')
                 <div id="card_title">
-                    <input id="card_type" type="text" name="title" value="{{ !empty($card->title) ? $card->title : '' }}" placeholder="(사용하실 명함이름을 임력해주세요 (관리자만 보입니다).)" />
+                    <input id="card_type" type="text" name="title" value="{{ !empty($card->title) ? $card->title : '' }}" placeholder="(명함이름을 입력해주세요 (필수).)" />
                 </div>
                 @endif
                 <div id="profile_section">
@@ -38,7 +38,7 @@
                             <img src="{{ asset($card->main_image) }}">
                         @elseif ($type === 'register' || $type === 'edit')
                             <input id="main_pic" type="file" name="main_image" value="{{ !empty($card->main_image) ? $card->main_image : old('main_image') }}" onchange="readURL(this);"/>
-                            <img onclick="click_to_change('main_pic')" src="{{ !empty($card->main_image) ? asset($card->main_image) : asset('images/card/main_img.svg') }}">
+                            <img onclick="click_to_change('main_pic')" src="{{ !empty($card->main_image) ? asset($card->main_image) : asset('images/card/main_img.png') }}">
                         @endif
                     </div>
                     <div id="main_card_section">
@@ -47,7 +47,7 @@
                                 <img src="{{ asset($card->main_profile) }}">
                             @elseif ($type === 'register' || $type === 'edit')
                                 <input id="main_photo" type="file" name="main_profile" value="{{ !empty($card->main_profile) ? asset($card->main_profile) : old('main_profile') }}" onchange="readURL(this);"/>
-                                <img onclick="click_to_change('main_photo')" src="{{ !empty($card->main_profile) ? asset($card->main_profile) : asset('images/card/myprofilephoto.svg') }}">
+                                <img onclick="click_to_change('main_photo')" src="{{ !empty($card->main_profile) ? asset($card->main_profile) : asset('images/card/myprofilephoto.png') }}">
                             @endif
                         </div>
                         <div id="main_right_section">
@@ -149,7 +149,7 @@
                     @if ($type === 'view' && !blank($card->youtube) || $type === 'register' || $type === 'edit')
                     <div id="video_section">
                         <div id="video_wrapper">
-                            <img id="lets_change_video" src="{{ asset('images/card/myyoutube.svg') }}" onclick="changeTag()";>
+                            <img id="lets_change_video" src="{{ asset('images/card/myyoutube.png') }}" onclick="changeTag()";>
                         </div>
                         <div id="add_video_wrapper">
                             <textarea id="add_youtube" name="youtube" tyle="text" placeholder="유튜브 공유하기 링크를 넣어주세요."></textarea>

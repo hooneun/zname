@@ -22,7 +22,7 @@
                             <td>{{ $list->id }}</td>
                             <td>{{ $list->title }}</td>
                             <td>
-                                <button type="button" id="js-link_copy" class="btn btn-success mb-1"
+                                <button type="button" id="js-link_copy" class="js-link_copy btn btn-success mb-1"
                                         value="{{ url('cards', ['id' => $list->id], false) }}">주소복사
                                 </button>
                                 <a class="btn btn-info mb-1"
@@ -93,7 +93,7 @@
             START_IMG.style.display = 'none';
         @endif
 
-        document.querySelector("#js-link_copy").addEventListener("click", function () {
+        document.querySelector(".js-link_copy").addEventListener("click", function () {
             var tempElem = document.createElement('textarea');
             tempElem.value = this.value;
             document.body.appendChild(tempElem);

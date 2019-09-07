@@ -71,7 +71,7 @@
                                 @if ($type === 'view' && !blank($card->email) || $type === 'register' || $type === 'edit')
                                     <div class="spec_section">
                                         <div class="img_wrapper"><i class="fas fa-envelope"></i></div>
-                                        <input id="rep_email" type="eamil" placeholder="이메일 (선택)" name="email" value="{{ !empty($card->email) ? $card->email : old('email') }}" minlength="2" maxlength="50" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                        <input id="rep_email" type="eamil" placeholder="이메일 (필수)" name="email" value="{{ !empty($card->email) ? $card->email : old('email') }}" minlength="2" maxlength="50" required size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                                     </div>
                                 @endif
                             </div>
@@ -82,7 +82,7 @@
                             @if ($type === 'view' && !blank($card->email) || $type === 'register' || $type === 'edit')
                             <div class="spec_section">
                                 <div class="img_wrapper"><i class="fas fa-comments"></i></div>
-                                <input id="today_comment" type="text" placeholder="오늘의 한마디 (선택, 최대 25자)" name="message" value="{{ !empty($card->message) ? $card->message : old('message') }}" minlength="2" maxlength="30" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                <input id="today_comment" type="text" placeholder="오늘의 한마디 (필수, 최대 25자)" name="message" value="{{ !empty($card->message) ? $card->message : old('message') }}" minlength="2" maxlength="30" required size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                             </div>
                             @endif
                             @if ($type === 'view' && !blank($card->cafe) || $type === 'register' || $type === 'edit')
@@ -91,14 +91,18 @@
                                 <input id="rep_cafe" type="text" placeholder="카페 또는 블로그 (선택)" name="cafe" value="{{ !empty($card->cafe) ? $card->cafe : old('cafe') }}" minlength="2" ize="16" {{ $type === 'view' ? 'disabled' : '' }}>
                             </div>
                             @endif
+                                @if ($type === 'view' && !blank($card->address))
                                 <div class="spec_section">
                                     <div class="img_wrapper align_address"><i class="fas fa-map-marker-alt"></i></div>
-                                    @if ($type === 'view')
-                                        <textarea id="rep_address" type="text" placeholder="주소 (선택)" name="address" required minlength="1" size="16" disabled>{{ !empty($card->address) ? trim($card->address) : old('address') }}</textarea>
-                                    @else
-                                        <textarea id="rep_address" onkeyup="auto_grow(this)" onclick="openAddress()" type="text" placeholder="주소 (선택)" name="address"  required minlength="1" size="16">{{ !empty($card->address) ? trim($card->address) : old('address') }}</textarea>
-                                    @endif
+                                    <textarea id="rep_address" type="text" placeholder="주소 (선택)" name="address" required minlength="1" size="16" disabled>{{ !empty($card->address) ? trim($card->address) : old('address') }}</textarea>
                                 </div>
+                                @endif
+                                @if ($type === 'register' || $type === 'edit')
+                                    <div class="spec_section">
+                                        <div class="img_wrapper align_address"><i class="fas fa-map-marker-alt"></i></div>
+                                        <textarea id="rep_address" onkeyup="auto_grow(this)" onclick="openAddress()" type="text" placeholder="주소 (선택)" name="address"  required minlength="1" size="16">{{ !empty($card->address) ? trim($card->address) : old('address') }}</textarea>
+                                    </div>
+                                @endif
                         </div>
                     </div>
                     <div id="social_link">
@@ -187,7 +191,7 @@
                                 <img src="{{ asset($card->ad_image_top) }}">
                                 @endif
                                 @if (!empty($card->ad_content_top))
-                                <div>{{ $card->ad_content_top }}</div>
+                                <div class="wit-spc">{{ $card->ad_content_top }}</div>
                                 @endif
                             @elseif ($type === 'register' || $type === 'edit')
                             <input id="ad_sec1" type="file" name="ad_image_top" onchange="readURL(this);" value="{{ !empty($card->ad_image_top) ? asset($card->ad_image_top) : '' }}"/>
@@ -201,7 +205,7 @@
                                 <img src="{{ asset($card->ad_image_middle) }}">
                                 @endif
                                 @if (!empty($card->ad_content_middle ))
-                                <div>{{ $card->ad_content_middle }}</div>
+                                <div class="wit-spc">{{ $card->ad_content_middle }}</div>
                                 @endif
                             @elseif ($type === 'register' || $type === 'edit')
                             <input id="ad_sec2" type="file" name="ad_image_middle" onchange="readURL(this);" value="{{ !empty($card->ad_image_middle) ? asset($card->ad_image_middle) : '' }}"/>
@@ -215,7 +219,7 @@
                                 <img src="{{ asset($card->ad_image_bottom) }}">
                                 @endif
                                 @if (!empty($card->ad_content_bottom ))
-                                <div>{{ $card->ad_content_bottom }}</div>
+                                <div class="wit-spc">{{ $card->ad_content_bottom }}</div>
                                 @endif
                             @elseif ($type === 'register' || $type === 'edit')
                             <input id="ad_sec3" type="file" name="ad_image_bottom" onchange="readURL(this);" value="{{ !empty($card->ad_image_bottom) ? asset($card->ad_image_bottom) : '' }}"/>

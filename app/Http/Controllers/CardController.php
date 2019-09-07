@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Traits\CardImage;
+use Illuminate\Support\Str;
 
 class CardController extends Controller
 {
@@ -202,7 +203,17 @@ class CardController extends Controller
 	 */
 	public function destroy($id)
 	{
-		if (Card::find($id)->delete() > 0) {
+		$card = Card::find($id);
+		$detail = $card->details;
+
+//		foreach (Detail::$IMAGE_COLUMNS as $_column) {
+//			if (!empty($detail->{$_column})) {
+//				$path = Str::replaceFirst('storage', 'storage/app', $detail->{$_column});
+//				dd(Storage::delete($path));
+//			}
+//		}
+
+		if ($card->delete() > 0) {
 			$this->message = '삭제 되었습니다';
 		} else {
 			$this->message = '삭제에 실패했습니다';
@@ -221,8 +232,8 @@ class CardController extends Controller
 			'job' => ['required', 'between:2,15'],
 			'address' => ['nullable', 'between:1, 50'],
 			'phone' => ['required', 'regex:/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/'],
-			'message' => ['nullable', 'between:5,25'],
-			'email' => ['nullable', 'email'],
+			'message' => ['required', 'between:5,25'],
+			'email' => ['required', 'email'],
 			'cafe' => ['nullable', 'active_url'],
 			'facebook' => ['nullable', 'active_url'],
 			'twitter' => ['nullable', 'active_url'],
@@ -270,8 +281,8 @@ class CardController extends Controller
 			'job' => ['required', 'between:2,15'],
 			'address' => ['nullable', 'between:1, 50'],
 			'phone' => ['required', 'regex:/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/'],
-			'message' => ['nullable', 'between:5,25'],
-			'email' => ['nullable', 'email'],
+			'message' => ['required', 'between:5,25'],
+			'email' => ['required', 'email'],
 			'cafe' => ['nullable', 'active_url'],
 			'facebook' => ['nullable', 'active_url'],
 			'twitter' => ['nullable', 'active_url'],

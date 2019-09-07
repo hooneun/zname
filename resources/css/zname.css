@@ -3,6 +3,10 @@ a:active, a:hover {
     text-decoration: none !important;
 }
 
+.wit-spc {
+    white-space: pre;
+}
+
 .zmt-10 {
     margin-top: 10px;
 }
@@ -328,6 +332,7 @@ input[type="url"] {
     border: 0;
     min-height: 13vh;
     max-width: 400px;
+    text-align: center;
 }
 
 #ad_contetn1::placeholder, #ad_contetn2::placeholder, #ad_contetn3::placeholder {
@@ -549,6 +554,12 @@ input[type="url"] {
 .align_address {
     margin-bottom: auto;
     margin-top: 6px;
+}
+
+#rep_address::placeholder {
+    color: black;
+    font-family: arial;
+    font-size: 14px;
 }
 
 /* Loading */

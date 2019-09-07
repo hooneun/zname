@@ -139,7 +139,7 @@
                                     <input id="address" type="text"
                                            class="form-control @error('address') is-invalid @enderror" name="address"
                                            onclick="openAddress()"
-                                           value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                           value="{{ old('address') }}" autocomplete="address" autofocus>
 
                                     @error('address')
                                     <span class="invalid-feedback" role="alert">

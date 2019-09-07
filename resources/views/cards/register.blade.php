@@ -156,7 +156,8 @@
                             <button id="complete_addyoutube" type="button" onclick="completeAddvideo()">완료</button>
                         </div>
                         <div id="video_iframe_section">
-                            <iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" frameborder="0" src="{{ !empty($card->youtube) ? $card->youtube : '' }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
                     @endif

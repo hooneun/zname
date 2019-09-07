@@ -328,13 +328,13 @@ input[type="url"] {
 }
 
 #profile_section > div:last-child {
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
 
 #main_right_section input {
     width: calc(100vw - 38vw);
+    background: none;
 }
 
 .speficif_spec div input {
@@ -489,6 +489,7 @@ input[type="url"] {
     flex-direction: column;
     text-decoration: none;
     filter: drop-shadow(1px 1px 3px #85878a);
+    z-index: 99;
 }
 
 #updowntoggle {
@@ -497,6 +498,7 @@ input[type="url"] {
     bottom: 60px;
     right: 0px;
     flex-direction: column;
+    z-index: 99;
 }
 #goup, #godown {
     display: flex;

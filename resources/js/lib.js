@@ -40,7 +40,9 @@ function changeTag() {
 
 function completeAddvideo() {
     let sliced = youtubeEmbed.value.match(/([^/]*)$/);
-    changedURL.src = "//www.youtube.com/embed/" + sliced[1]
+    const url = "//www.youtube.com/embed/" + sliced[1];
+    changedURL.src = url;
+    youtubeEmbed.value = url;
     vidWrapper.classList.remove("show")
     vidIframe.classList.add("show")
 }

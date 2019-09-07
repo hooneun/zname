@@ -3,6 +3,10 @@ a:active, a:hover {
     text-decoration: none !important;
 }
 
+#main_card_section input, #main_sub_section input {
+    color: #000000 !important;
+}
+
 .about {
     font-family: 'Slabo 27px', serif;
     font-weight: normal;
@@ -328,11 +332,6 @@ input[type="url"] {
     width: 100vw;
 }
 
-#profile_section > div:last-child {
-    bottom: 0;
-    width: 100%;
-}
-
 #main_right_section input {
     width: calc(100vw - 38vw);
     background: none;
@@ -502,6 +501,7 @@ input[type="url"] {
     flex-direction: column;
     z-index: 99;
 }
+
 #goup, #godown {
     display: flex;
     width: 29px;
@@ -513,8 +513,15 @@ input[type="url"] {
     align-items: center;
     filter: drop-shadow(1px 1px 3px #85878a);
 }
+
 #goup i, #godown i {
     color: #ffffff;
     font-size: 15px;
     transform: translateX(4px);
+}
+
+#complete_edit {
+    bottom: 0;
+    width: 100%;
+    position:fixed
 }

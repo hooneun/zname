@@ -13,8 +13,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">제목</th>
-                    <th scope="col">시간</th>
-                    <th scope="col"></th>
+                    <th scope="col" class="w-50"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -22,10 +21,9 @@
                     <tr>
                         <td>{{ $list->id }}</td>
                         <td>{{ $list->title }}</td>
-                        <td>{{ $list->updated_at }}</td>
                         <td>
-                            <a class="btn btn-info mb-1" href="{{ route('cards.edit', ['id' => $list->details->id], false) }}">수정</a>
                             <button type="button" id="js-link_copy" class="btn btn-success mb-1" value="{{ url('cards', ['id' => $list->id], false) }}">주소복사</button>
+                            <a class="btn btn-info mb-1" href="{{ route('cards.edit', ['id' => $list->details->id], false) }}">수정</a>
                             <a class="btn btn-warning mb-1 text-white" href="{{ route('cards.view', ['id' => $list->details->id], false) }}">명함보기</a>
                             <a class="btn btn-danger mb-1" href="{{ route('cards.delete', ['id' => $list->id], false) }}">삭제</a>
                         </td>

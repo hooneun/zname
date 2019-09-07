@@ -13,7 +13,7 @@ return [
     */
 
     'accepted'             => ':attribute을(를) 동의해야 합니다.',
-    'active_url'           => ':attribute은(는) 유효한 URL이 아닙니다.',
+    'active_url'           => ':attribute은(는) 존재하지 않는 주소(URL)입니다. (http:// 또는 https:// 입력 필요)',
     'after'                => ':attribute은(는) :date 이후 날짜여야 합니다.',
     'after_or_equal'       => ':attribute은(는) :date 이후 날짜이거나 같은 날짜여야 합니다.',
     'alpha'                => ':attribute은(는) 문자만 포함할 수 있습니다.',

@@ -17,7 +17,12 @@
 
 @section('content')
     @if ($type === 'view')
-        <a href="{{ route('home') }}" class="make_my_name"><span>나도</span><span>만들기</span></a>
+        @auth
+        <a href="{{ route('cards.edit', ['id' => $card->id], false) }}" class="make_my_name"><span>명함</span><span>수정하기</span></a>
+        @endauth
+        @guest
+            <a href="{{ route('home') }}" class="make_my_name"><span>나도</span><span>만들기</span></a>
+        @endguest
         <div id="updowntoggle">
             <div id="goup" onclick="document.body.scrollIntoView()"><i class="fas fa-chevron-up"></i></div>
             <div id="godown" onclick="document.body.scrollIntoView(false)"><i class="fas fa-chevron-down"></i></div>
@@ -59,7 +64,11 @@
                                 </div>
                                 <div class="spec_section">
                                     <div class="img_wrapper"><i class="fas fa-map-marker-alt"></i></div>
+                                    @if ($type === 'view')
+                                        <input id="rep_address" type="text" placeholder="주소 (필수, 최대15자)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}"  required minlength="1" maxlength="15" size="16" disabled>
+                                    @else
                                     <input id="rep_address" onclick="openAddress()" type="text" placeholder="주소 (필수, 최대15자)" name="address" value="{{ !empty($card->address) ? $card->address : old('address') }}"  required minlength="1" maxlength="15" size="16">
+                                    @endif
                                 </div>
                                 <div class="spec_section">
                                     <div class="img_wrapper"><i class="fas fa-mobile-alt"></i></div>
@@ -146,17 +155,25 @@
                             @endif
                         @endif
                     </div>
-                    @if ($type === 'view' && !blank($card->youtube) || $type === 'register' || $type === 'edit')
+                    @if ($type === 'register' || $type === 'edit')
+                        <div id="video_section">
+                            <div id="video_wrapper">
+                                <img id="lets_change_video" src="{{ asset('images/card/myyoutube.png') }}" onclick="changeTag()";>
+                            </div>
+                            <div id="add_video_wrapper">
+                                <textarea id="add_youtube" name="youtube" tyle="text" placeholder="유튜브 공유하기 링크를 넣어주세요."></textarea>
+                                <button id="complete_addyoutube" type="button" onclick="completeAddvideo()">완료</button>
+                            </div>
+                            <div id="video_iframe_section">
+                                <iframe width="560" height="315" frameborder="0" src="{{ !empty($card->youtube) ? $card->youtube : '' }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    @endif
+                    @if ($type === 'view' && !blank($card->youtube))
                     <div id="video_section">
-                        <div id="video_wrapper">
-                            <img id="lets_change_video" src="{{ asset('images/card/myyoutube.png') }}" onclick="changeTag()";>
-                        </div>
-                        <div id="add_video_wrapper">
-                            <textarea id="add_youtube" name="youtube" tyle="text" placeholder="유튜브 공유하기 링크를 넣어주세요."></textarea>
-                            <button id="complete_addyoutube" type="button" onclick="completeAddvideo()">완료</button>
-                        </div>
                         <div id="video_iframe_section">
-                            <iframe width="560" height="315" frameborder="0" src="{{ !empty($card->youtube) ? $card->youtube : '' }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                            <iframe class="d-block" width="560" height="315" frameborder="0" src="{{ !empty($card->youtube) ? $card->youtube : '' }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
@@ -194,8 +211,14 @@
                         </div>
                     </div>
                     @if ($type === 'register' || $type === 'edit')
-                        <div>
-                            <button type="button" class="card_register_btn" id="js-register-btn">명함 만들기</button>
+                        <div id="complete_edit">
+                            <button type="button" class="card_register_btn" id="js-register-btn">
+                                @if ($type === 'register')
+                                    명함 만들기
+                                @else
+                                    명함 수정하기
+                                @endif
+                            </button>
                         </div>
                         @section('script')
                         <script>
@@ -208,7 +231,13 @@
 
                                 window.axios.post(url, formData)
                                     .then(function (response) {
+                                        @if ($type === 'register')
                                         alert('ZNAME 생성이 완료되었습니다.');
+                                        @else
+                                        alert('ZNAME 수정이 완료되었습니다.');
+                                        @endif
+
+                                        location.href = '/cards/' + response.data.id;
                                     })
                                     .catch(function (errors) {
                                         const error = errors.response.data.errors;

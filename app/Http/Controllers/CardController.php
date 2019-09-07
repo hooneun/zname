@@ -103,6 +103,7 @@ class CardController extends Controller
 
 		return response()->json([
 			compact('card'),
+			'id' => $card->id,
 		], 200);
 	}
 
@@ -180,11 +181,15 @@ class CardController extends Controller
 			$card->update(['title' => $req['title']]);
 			unset($req['title']);
 
-			return $detail->update($req);
+			return [
+				'success' => $detail->update($req),
+				'id' => $id
+			];
 		});
 
 		return response()->json([
-			compact('card')
+			compact('card'),
+			'id' => $card['id'],
 		]);
 
 	}

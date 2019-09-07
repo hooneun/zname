@@ -180,9 +180,13 @@
                     @endif
                     <div id="total_ad_section">
                         <div>
-                            @if ($type === 'view' && !blank($card->ad_image_top))
-                            <img src="{{ asset($card->ad_image_top) }}">
-                            <div>{{ $card->ad_content_top }}</div>
+                            @if ($type === 'view')
+                                @if (!empty($card->ad_image_top))
+                                <img src="{{ asset($card->ad_image_top) }}">
+                                @endif
+                                @if (!empty($card->ad_content_top))
+                                <div>{{ $card->ad_content_top }}</div>
+                                @endif
                             @elseif ($type === 'register' || $type === 'edit')
                             <input id="ad_sec1" type="file" name="ad_image_top" onchange="readURL(this);" value="{{ !empty($card->ad_image_top) ? asset($card->ad_image_top) : '' }}"/>
                             <img onclick="click_to_change('ad_sec1')" src="{{ !empty($card->ad_image_top) ? asset($card->ad_image_top) : asset('images/card/adsection1.png') }}">
@@ -190,9 +194,13 @@
                             @endif
                         </div>
                         <div>
-                            @if ($type === 'view' && !blank($card->ad_image_middle))
-                            <img src="{{ asset($card->ad_image_middle) }}">
-                            <div>{{ $card->ad_content_middle }}</div>
+                            @if ($type === 'view')
+                                @if (!empty($card->ad_image_middle))
+                                <img src="{{ asset($card->ad_image_middle) }}">
+                                @endif
+                                @if (!empty($card->ad_content_middle ))
+                                <div>{{ $card->ad_content_middle }}</div>
+                                @endif
                             @elseif ($type === 'register' || $type === 'edit')
                             <input id="ad_sec2" type="file" name="ad_image_middle" onchange="readURL(this);" value="{{ !empty($card->ad_image_middle) ? asset($card->ad_image_middle) : '' }}"/>
                             <img onclick="click_to_change('ad_sec2')" src="{{ !empty($card->ad_image_middle) ? asset($card->ad_image_middle) : asset('images/card/adsection2.png') }}">
@@ -201,8 +209,12 @@
                         </div>
                         <div>
                             @if ($type === 'view' && !blank($card->ad_image_bottom))
+                                @if (!empty($card->ad_image_bottom))
                                 <img src="{{ asset($card->ad_image_bottom) }}">
+                                @endif
+                                @if (!empty($card->ad_content_bottom ))
                                 <div>{{ $card->ad_content_bottom }}</div>
+                                @endif
                             @elseif ($type === 'register' || $type === 'edit')
                             <input id="ad_sec3" type="file" name="ad_image_bottom" onchange="readURL(this);" value="{{ !empty($card->ad_image_bottom) ? asset($card->ad_image_bottom) : '' }}"/>
                             <img onclick="click_to_change('ad_sec3')" src="{{ !empty($card->ad_image_bottom) ? asset($card->ad_image_bottom) : asset('images/card/adsection3.png') }}">

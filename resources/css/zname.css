@@ -336,6 +336,7 @@ input[type="url"] {
 #main_right_section input {
     width: calc(100vw - 38vw);
     background: none;
+    color: #000000;
 }
 
 .speficif_spec div input {
@@ -515,5 +516,5 @@ input[type="url"] {
 #goup i, #godown i {
     color: #ffffff;
     font-size: 15px;
-    transform: translateX(1px);
+    transform: translateX(4px);
 }

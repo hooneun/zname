@@ -94,14 +94,14 @@
         @endif
 
         document.querySelector(".js-link_copy").addEventListener("click", function () {
-            var tempElem = document.createElement('textarea');
-            tempElem.value = this.value;
-            document.body.appendChild(tempElem);
-
-            tempElem.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempElem);
-
+//            var tempElem = document.createElement('textarea');
+//            tempElem.value = this.value;
+//            document.body.appendChild(tempElem);
+//
+//            tempElem.select();
+//            document.execCommand("copy");
+//            document.body.removeChild(tempElem);
+            Copy(this.value);
             alert('복사되었습니다.');
         });
 

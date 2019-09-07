@@ -81,7 +81,10 @@
 
                             <div>
                                 <div class="form-group row">
-                                    <label for="contact_address" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                                    <label for="contact_address" class="col-md-4 col-form-label text-md-right">
+                                        {{ __('Phone Number') }}
+                                        <span class="text-danger align-middle">*</span>
+                                    </label>
 
                                     <div class="col-md-6">
                                         <input id="contact_address" type="text" class="form-control @error('contact_address') is-invalid @enderror" name="contact_address" value="{{ old('contact_address') }}" required autocomplete="contact_address">

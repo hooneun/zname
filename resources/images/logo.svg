@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="360px" height="72px" viewBox="0 0 360 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Group 9</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-9" transform="translate(-1.000000, -19.000000)">
+            <g id="Group">
+                <text id="NAME" font-family="Arial-BoldMT, Arial" font-size="100" font-weight="bold" fill="#000204">
+                    <tspan x="0" y="91">  </tspan>
+                    <tspan x="55.5664062" y="91" font-size="58"> </tspan>
+                    <tspan x="71.6806641" y="91">NAME</tspan>
+                </text>
+                <g id="pencel" transform="translate(33.000000, 57.000000) scale(-1, 1) rotate(5.000000) translate(-33.000000, -57.000000) translate(15.000000, 39.000000)" fill="#000000" fill-rule="nonzero">
+                    <path d="M22.3814518,5.99716446 L29.7032665,13.3189112 L11.1697316,31.8524461 L3.85206805,24.5306994 L22.3814518,5.99716446 Z M35.2591078,4.23132703 L31.9938601,0.966079395 C30.7319546,-0.295826087 28.6828809,-0.295826087 27.4166881,0.966079395 L24.2889074,4.09386011 L31.6107221,11.4156749 L35.2591078,7.76728922 C36.237845,6.78848393 36.237845,5.21006427 35.2591078,4.23132703 Z M0.020415879,34.8220038 C-0.112831758,35.4216862 0.428597353,35.9590321 1.02834783,35.8131947 L9.18728166,33.8349641 L1.86961815,26.5132174 L0.020415879,34.8220038 Z" id="Shape"></path>
+                </g>
+            </g>
+            <rect id="Rectangle" fill="#000000" x="5" y="19" width="53" height="12"></rect>
+            <polygon id="Rectangle" fill="#000000" points="39.2022325 31 58 31 39.7920313 53.1946738 29.3936079 44.2522615"></polygon>
+            <rect id="Rectangle" fill="#000000" transform="translate(30.000000, 84.500000) scale(1, -1) translate(-30.000000, -84.500000) " x="1" y="78" width="58" height="13"></rect>
+            <polygon id="Rectangle" fill="#000000" transform="translate(15.750000, 66.465998) scale(-1, -1) translate(-15.750000, -66.465998) " points="11.7022325 55 30.5 55 11.7022325 77.9319955 1 68.8094704"></polygon>
+        </g>
+    </g>
+</svg>

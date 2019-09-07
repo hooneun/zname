@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-{{--<img src="{{ asset('images/loader.png') }}" id="js-startImg" class="position-absolute fixed-top img-fluid w-100">--}}
 <div id="js-startImg" class="loader_background h-100 w-100 position-absolute fixed-top">
-    <img src="{{ asset('images/loader.png') }}">
+    <img src="{{ asset('images/loader.svg') }}">
 </div>
 <div class="container">
     @auth
@@ -26,9 +25,8 @@
                         <td>{{ $list->updated_at }}</td>
                         <td>
                             <a class="btn btn-info mb-1" href="{{ route('cards.edit', ['id' => $list->details->id], false) }}">수정</a>
-                            <br>
-                            <a class="btn btn-success mb-1" href="{{ route('cards.view', ['id' => $list->details->id], false) }}">보기</a>
-                            <br>
+                            <button type="button" id="js-link_copy" class="btn btn-success mb-1" value="{{ url('cards', ['id' => $list->id], false) }}">주소복사</button>
+                            <a class="btn btn-warning mb-1 text-white" href="{{ route('cards.view', ['id' => $list->details->id], false) }}">명함보기</a>
                             <a class="btn btn-danger mb-1" href="{{ route('cards.delete', ['id' => $list->id], false) }}">삭제</a>
                         </td>
                     </tr>
@@ -91,5 +89,15 @@
         @else
             START_IMG.style.display = 'none';
         @endif
+
+        document.querySelector("#js-link_copy").addEventListener("click", function(){
+            var tempElem = document.createElement('textarea');
+            tempElem.value = this.value;
+            document.body.appendChild(tempElem);
+
+            tempElem.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempElem);
+        });
     </script>
 @endsection

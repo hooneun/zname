@@ -206,64 +206,6 @@ class CardController extends Controller
 		return redirect()->route('home', ['message' => $this->message]);
 	}
 
-	public function quickEditImage()
-	{
-		$id = Auth::id();
-
-		$contents = Storage::files('/public/cards/' . $id);
-		$html = '';
-
-		if (!empty($contents)) {
-			$html .= '<ul><li><a href="/rapidweaver-stack/quick-editor-admin/files/quick-edit/"> Parent Directory</a></li>';
-			foreach ($contents as $content) {
-				$html .= '<li><a href="' . Storage::url($content) . '"> banner-qep.jpg</a></li>';
-			}
-			$html .= '</ul>';
-		}
-
-		return $html;
-	}
-
-	public function getQuickEditImage($fileName)
-	{
-		$id = Auth::id();
-
-		$file = Storage::get('/public/cards/' . $id . '/' . $fileName);
-
-		dd($file);
-	}
-
-	public function quickEditImageUpload(Request $request)
-	{
-		Validator::make($request->all(), [
-			'file' => ['required', 'image'],
-		])->validate();
-
-		$id = Auth::id();
-
-		if (!Storage::exists('/public/cards/' . $id)) {
-			Storage::makeDirectory('/public/cards/' . $id, 0775, true); //creates directory
-		}
-
-		$path = Storage::put('/public/cards/' . $id, $request->file);
-		$url = Storage::url($path);
-
-		return response()->json([
-			'filePath' => $url,
-		]);
-	}
-
-	public function quickEditImageDelete(Request $request)
-	{
-		Validator::make($request->all(), [
-			'delete_file' => ['required'],
-		])->validate();
-
-		$id = Auth::id();
-
-		Storage::delete('/public/cards/' . $id . '/' . $request->delete_file);
-	}
-
 	public function validator(array $data)
 	{
 		return Validator::make($data, [
@@ -295,7 +237,7 @@ class CardController extends Controller
 			'name' => '이름',
 			'job' => '직업',
 			'address' => '주소',
-			'phone' => '연락처',
+			'phone' => '전화번호',
 			'message' => '오늘의 한마디',
 			'email' => '이메일',
 			'cafe' => '카페 또는 블로그',
@@ -333,7 +275,7 @@ class CardController extends Controller
 			'name' => '이름',
 			'job' => '직업',
 			'address' => '주소',
-			'phone' => '연락처',
+			'phone' => '전화번호',
 			'message' => '오늘의 한마디',
 			'email' => '이메일',
 			'cafe' => '카페 또는 블로그',

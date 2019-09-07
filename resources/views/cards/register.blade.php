@@ -16,6 +16,13 @@
 @endif
 
 @section('content')
+    @if ($type === 'view')
+        <a href="{{ route('home') }}" class="make_my_name"><span>나도</span><span>만들기</span></a>
+        <div id="updowntoggle">
+            <div id="goup" onclick="document.body.scrollIntoView()"><i class="fas fa-chevron-up"></i></div>
+            <div id="godown" onclick="document.body.scrollIntoView(false)"><i class="fas fa-chevron-down"></i></div>
+        </div>
+    @endif
     <main id="card-content">
         <form method="post" id="js-register-form" action="{{ $type === 'register' ? route('cards.register') : route('cards.update', ['id' => $card->id], false) }}" enctype="multipart/form-data">
             @csrf
@@ -187,7 +194,7 @@
                     </div>
                     @if ($type === 'register' || $type === 'edit')
                         <div>
-                            <button type="button" class="btn btn-primary" id="js-register-btn">등록</button>
+                            <button type="button" class="card_register_btn" id="js-register-btn">명함 만들기</button>
                         </div>
                         @section('script')
                         <script>

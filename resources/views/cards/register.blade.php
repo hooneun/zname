@@ -40,19 +40,19 @@
                 <div id="profile_section">
                     <div id="rep_img">
                         @if ($type === 'view')
-                            <img src="{{ asset($card->main_image) }}">
+                            <img src="{{ asset($card->main_image_url) }}">
                         @elseif ($type === 'register' || $type === 'edit')
-                            <input id="main_pic" type="file" name="main_image" value="{{ !empty($card->main_image) ? $card->main_image : old('main_image') }}" onchange="readURL(this);"/>
-                            <img onclick="click_to_change('main_pic')" src="{{ !empty($card->main_image) ? asset($card->main_image) : asset('images/card/main_img.png') }}">
+                            <input id="main_pic" type="file" name="main_image" value="{{ !empty($card->main_image_url) ? $card->main_image_url : old('main_image') }}" onchange="readURL(this);"/>
+                            <img onclick="click_to_change('main_pic')" src="{{ !empty($card->main_image_url) ? asset($card->main_image_url) : asset('images/card/main_img.png') }}">
                         @endif
                     </div>
                     <div id="main_card_section">
                         <div id="main_left_section">
                             @if ($type === 'view')
-                                <img src="{{ asset($card->main_profile) }}">
+                                <img src="{{ asset($card->main_profile_url) }}">
                             @elseif ($type === 'register' || $type === 'edit')
-                                <input id="main_photo" type="file" name="main_profile" value="{{ !empty($card->main_profile) ? asset($card->main_profile) : old('main_profile') }}" onchange="readURL(this);"/>
-                                <img onclick="click_to_change('main_photo')" src="{{ !empty($card->main_profile) ? asset($card->main_profile) : asset('images/card/myprofilephoto.png') }}">
+                                <input id="main_photo" type="file" name="main_profile" value="{{ !empty($card->main_profile_url) ? asset($card->main_profile_url) : old('main_profile') }}" onchange="readURL(this);"/>
+                                <img onclick="click_to_change('main_photo')" src="{{ !empty($card->main_profile_url) ? asset($card->main_profile_url) : asset('images/card/myprofilephoto.png') }}">
                             @endif
                         </div>
                         <div id="main_right_section">
@@ -188,42 +188,42 @@
                         <div>
                             @if ($type === 'view')
                                 @if (!empty($card->ad_image_top))
-                                <img src="{{ asset($card->ad_image_top) }}">
+                                <img src="{{ asset($card->ad_image_top_url) }}">
                                 @endif
                                 @if (!empty($card->ad_content_top))
                                 <div class="wit-spc">{{ $card->ad_content_top }}</div>
                                 @endif
                             @elseif ($type === 'register' || $type === 'edit')
-                            <input id="ad_sec1" type="file" name="ad_image_top" onchange="readURL(this);" value="{{ !empty($card->ad_image_top) ? asset($card->ad_image_top) : '' }}"/>
-                            <img onclick="click_to_change('ad_sec1')" src="{{ !empty($card->ad_image_top) ? asset($card->ad_image_top) : asset('images/card/adsection1.png') }}">
+                            <input id="ad_sec1" type="file" name="ad_image_top" onchange="readURL(this);" value="{{ !empty($card->ad_image_top_url) ? asset($card->ad_image_top_url) : '' }}"/>
+                            <img onclick="click_to_change('ad_sec1')" src="{{ !empty($card->ad_image_top_url) ? asset($card->ad_image_top_url) : asset('images/card/adsection1.png') }}">
                             <textarea id="ad_contetn1" onkeyup="auto_grow(this)" name="ad_content_top" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요." {{ $type === 'view' ? 'disabled' : '' }}>{{ !empty($card->ad_content_top) ? $card->ad_content_top : '' }}</textarea>
                             @endif
                         </div>
                         <div>
                             @if ($type === 'view')
-                                @if (!empty($card->ad_image_middle))
-                                <img src="{{ asset($card->ad_image_middle) }}">
+                                @if (!empty($card->ad_image_middle_url))
+                                <img src="{{ asset($card->ad_image_middle_url) }}">
                                 @endif
                                 @if (!empty($card->ad_content_middle ))
                                 <div class="wit-spc">{{ $card->ad_content_middle }}</div>
                                 @endif
                             @elseif ($type === 'register' || $type === 'edit')
-                            <input id="ad_sec2" type="file" name="ad_image_middle" onchange="readURL(this);" value="{{ !empty($card->ad_image_middle) ? asset($card->ad_image_middle) : '' }}"/>
-                            <img onclick="click_to_change('ad_sec2')" src="{{ !empty($card->ad_image_middle) ? asset($card->ad_image_middle) : asset('images/card/adsection2.png') }}">
+                            <input id="ad_sec2" type="file" name="ad_image_middle" onchange="readURL(this);" value="{{ !empty($card->ad_image_middle_url) ? asset($card->ad_image_middle_url) : '' }}"/>
+                            <img onclick="click_to_change('ad_sec2')" src="{{ !empty($card->ad_image_middle_url) ? asset($card->ad_image_middle_url) : asset('images/card/adsection2.png') }}">
                             <textarea id="ad_contetn2" onkeyup="auto_grow(this)" name="ad_content_middle" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요." {{ $type === 'view' ? 'disabled' : '' }}>{{ !empty($card->ad_content_middle) ? $card->ad_content_middle : '' }}</textarea>
                             @endif
                         </div>
                         <div>
-                            @if ($type === 'view' && !blank($card->ad_image_bottom))
-                                @if (!empty($card->ad_image_bottom))
-                                <img src="{{ asset($card->ad_image_bottom) }}">
+                            @if ($type === 'view' && !blank($card->ad_image_bottom_url))
+                                @if (!empty($card->ad_image_bottom_url))
+                                <img src="{{ asset($card->ad_image_bottom_url) }}">
                                 @endif
                                 @if (!empty($card->ad_content_bottom ))
                                 <div class="wit-spc">{{ $card->ad_content_bottom }}</div>
                                 @endif
                             @elseif ($type === 'register' || $type === 'edit')
-                            <input id="ad_sec3" type="file" name="ad_image_bottom" onchange="readURL(this);" value="{{ !empty($card->ad_image_bottom) ? asset($card->ad_image_bottom) : '' }}"/>
-                            <img onclick="click_to_change('ad_sec3')" src="{{ !empty($card->ad_image_bottom) ? asset($card->ad_image_bottom) : asset('images/card/adsection3.png') }}">
+                            <input id="ad_sec3" type="file" name="ad_image_bottom" onchange="readURL(this);" value="{{ !empty($card->ad_image_bottom_url) ? asset($card->ad_image_bottom_url) : '' }}"/>
+                            <img onclick="click_to_change('ad_sec3')" src="{{ !empty($card->ad_image_bottom_url) ? asset($card->ad_image_bottom_url) : asset('images/card/adsection3.png') }}">
                             <textarea id="ad_contetn3" onkeyup="auto_grow(this)" name="ad_content_bottom" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요." {{ $type === 'view' ? 'disabled' : '' }}>{{ !empty($card->ad_content_bottom) ? $card->ad_content_bottom : '' }}</textarea>
                             @endif
                         </div>

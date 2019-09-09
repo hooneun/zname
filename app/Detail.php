@@ -16,29 +16,29 @@ class Detail extends Model
 
 	protected $guarded = ['id'];
 
-	public function getMainImageAttribute($value)
+	public function getMainImageUrlAttribute()
 	{
-		return !empty($value) ? Storage::url($value) : '';
+		return !empty($this->main_image) ? Storage::url($this->main_image) : '';
 	}
 
-	public function getMainProfileAttribute($value)
+	public function getMainProfileUrlAttribute()
 	{
-		return !empty($value) ? Storage::url($value) : '';
+		return !empty($this->main_profile) ? Storage::url($this->main_profile) : '';
 	}
 
-	public function getAdImageTopAttribute($value)
+	public function getAdImageTopUrlAttribute()
 	{
-		return !empty($value) ? Storage::url($value) : '';
+		return !empty($this->ad_image_top) ? Storage::url($this->ad_image_top) : '';
 	}
 
-	public function getAdImageMiddleAttribute($value)
+	public function getAdImageMiddleUrlAttribute()
 	{
-		return !empty($value) ? Storage::url($value) : '';
+		return !empty($this->ad_image_middle) ? Storage::url($this->ad_image_middle) : '';
 	}
 
-	public function getAdImageBottomAttribute($value)
+	public function getAdImageBottomUrlAttribute()
 	{
-		return !empty($value) ? Storage::url($value) : '';
+		return !empty($this->ad_image_bottom) ? Storage::url($this->ad_image_bottom) : '';
 	}
 
 	public function card()

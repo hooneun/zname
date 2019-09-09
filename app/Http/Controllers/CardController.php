@@ -140,15 +140,6 @@ class CardController extends Controller
 		$card['title'] = $title->title;
 
 
-//		foreach (Detail::$IMAGE_COLUMNS as $image) {
-//			if (!empty($card->{$image})) {
-//				$path = Storage::path($card->{$image});
-//				dd(Storage::mimeType($path));
-//				dd(Storage::path($card->{$image}));
-//				$card[$image] = base64_encode($card->{$image});
-//			}
-//		}
-
 		return view('cards.register', compact('card', 'type'));
 	}
 
@@ -175,8 +166,8 @@ class CardController extends Controller
 			$detail = Detail::find($id);
 			$card = Card::find($detail->card_id);
 
-			foreach ($imagePaths as $_image) {
-				Storage::delete($detail->{$_image});
+			foreach ($imagePaths as $_column => $_image) {
+				Storage::delete($detail->{$_column});
 			}
 
 			$card->update(['title' => $req['title']]);
@@ -206,12 +197,11 @@ class CardController extends Controller
 		$card = Card::find($id);
 		$detail = $card->details;
 
-//		foreach (Detail::$IMAGE_COLUMNS as $_column) {
-//			if (!empty($detail->{$_column})) {
-//				$path = Str::replaceFirst('storage', 'storage/app', $detail->{$_column});
-//				dd(Storage::delete($path));
-//			}
-//		}
+		foreach (Detail::$IMAGE_COLUMNS as $_column) {
+			if (!empty($detail->{$_column})) {
+				Storage::delete($detail->{$_column});
+			}
+		}
 
 		if ($card->delete() > 0) {
 			$this->message = '삭제 되었습니다';

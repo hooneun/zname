@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" user-scalable="no" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
     @yield('og')
+
+    @if (Route::currentRouteName() !== 'card.view')
     <meta property="og:image" content="{{ asset('images/ogimage.png') }}">
     <meta property="og:description" content="ZNAME은 온라인 명함 플랫폼입니다.">
+    @endif
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

@@ -284,6 +284,7 @@ i {
     display: flex;
     flex-direction: column;
     text-align: center;
+    margin: 10px 0;
 }
 
 input {
@@ -541,9 +542,9 @@ input[type="url"] {
 }
 
 #goup i, #godown i {
-    color: #ffffff;
     font-size: 15px;
     transform: translateX(4px);
+    color: #000000;
 }
 
 #complete_edit {
@@ -555,7 +556,7 @@ input[type="url"] {
 #rep_address {
     width: 94vw;
     border: 0;
-    /*height: auto;*/
+    resize: none;
 }
 
 .align_address {

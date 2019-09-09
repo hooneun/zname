@@ -34,7 +34,7 @@
             <div id="zname_total_wrapper">
                 @if ($type === 'register' || $type === 'edit')
                 <div id="card_title">
-                    <input id="card_type" type="text" name="title" value="{{ !empty($card->title) ? $card->title : '' }}" placeholder="명함이름을 입력해주세요 (필수)." />
+                    <input id="card_type" type="text" name="title" value="{{ !empty($card->title) ? $card->title : '' }}" placeholder="명함이름을 입력해주세요. (필수)" />
                 </div>
                 @endif
                 <div id="profile_section">
@@ -65,15 +65,21 @@
 
                                 <div class="spec_section">
                                     <div class="img_wrapper"><i class="fas fa-mobile-alt"></i></div>
-                                    <input id="rep_contact" type="text" placeholder="연락처 (필수, 예: 010-0000-0000)" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" value="{{ !empty($card->phone) ? $card->phone : old('phone') }}" required minlength="2" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                    @if ($type === 'view')
+                                        <a href="tel:{{ str_replace('-', '', $card->phone) }}">{{ $card->phone }}</a>
+                                    @else
+                                        <input id="rep_contact" type="text" placeholder="연락처 (필수, 예: 010-0000-0000)" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" value="{{ !empty($card->phone) ? $card->phone : old('phone') }}" required minlength="2" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                    @endif
                                 </div>
 
-                                @if ($type === 'view' && !blank($card->email) || $type === 'register' || $type === 'edit')
-                                    <div class="spec_section">
-                                        <div class="img_wrapper"><i class="fas fa-envelope"></i></div>
-                                        <input id="rep_email" type="eamil" placeholder="이메일 (필수)" name="email" value="{{ !empty($card->email) ? $card->email : old('email') }}" minlength="2" maxlength="50" required size="16" {{ $type === 'view' ? 'disabled' : '' }}>
-                                    </div>
-                                @endif
+                                <div class="spec_section">
+                                    <div class="img_wrapper"><i class="fas fa-envelope"></i></div>
+                                    @if ($type === 'view')
+                                    <a href="mailto:{{ $card->email }}">{{ $card->email }}</a>
+                                    @elseif ($type === 'register' || $type === 'edit')
+                                    <input id="rep_email" type="eamil" placeholder="이메일 (필수)" name="email" value="{{ !empty($card->email) ? $card->email : old('email') }}" minlength="2" maxlength="50" required size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>

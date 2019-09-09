@@ -112,7 +112,7 @@ i {
 #card_type {
     max-width: 400px;
     font-size: 14px;
-    color: #ffffff;
+    color: #000000;
     height: 30px;
     border-radius: 30px;
     display: flex;
@@ -124,7 +124,7 @@ i {
     text-align: center;
     opacity: 1;
     z-index: 99;
-    background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+    border: 2px solid #E53935;
 }
 
 #add_youtube::placeholder {
@@ -278,6 +278,7 @@ i {
 #total_ad_section div {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 input {
@@ -288,7 +289,7 @@ input {
 }
 
 #card_type::placeholder {
-    color: #ffffff;
+    color: #000000;
 }
 
 input::placeholder {

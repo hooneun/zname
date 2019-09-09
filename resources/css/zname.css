@@ -502,8 +502,6 @@ input[type="url"] {
 .make_my_name {
     display: flex;
     position: fixed;
-    background-image: radial-gradient(circle at 10% 20%, rgb(142, 224, 251) 0%, rgb(255, 121, 225) 100.7%);
-    color: #ffffff;
     width: 29px;
     right: 0;
     bottom: 20%;
@@ -516,6 +514,8 @@ input[type="url"] {
     text-decoration: none;
     filter: drop-shadow(1px 1px 3px #85878a);
     z-index: 99;
+    background: #ffffff;
+    color: #000000;
 }
 
 #updowntoggle {
@@ -531,12 +531,13 @@ input[type="url"] {
     display: flex;
     width: 29px;
     height: 29px;
-    background-image: radial-gradient(circle at 10% 20%, rgb(142, 224, 251) 0%, rgb(255, 121, 225) 100.7%);
     border-radius: 20px 0 0 20px;
     margin: 9px 0;
     justify-content: center;
     align-items: center;
     filter: drop-shadow(1px 1px 3px #85878a);
+    background: #ffffff;
+    color: #000000;
 }
 
 #goup i, #godown i {

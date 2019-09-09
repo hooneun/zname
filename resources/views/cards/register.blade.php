@@ -11,7 +11,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     <meta property="og:description" content="{{ $card->message }}">
-    <meta property="og:image" content="{{ $card->main_profile }}">
+    <meta property="og:image" content="{{ $card->main_profile . '?' . \Illuminate\Support\Str::random(40)}}">
 @endsection
 @endif
 

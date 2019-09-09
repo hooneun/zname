@@ -217,6 +217,11 @@ i {
     justify-content: flex-start;
 }
 
+#main_right_section a {
+    color:#000000;
+    width: 62vw;
+}
+
 #main_card_section {
     margin-bottom: 10px;
 }

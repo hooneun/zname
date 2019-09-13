@@ -47,11 +47,9 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
-                                    <button type="button" class="btn btn-link" onclick="alert('준비중입니다.')">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
                                         비밀번호 찾기
-                                    </button>
-                                    {{--</a>--}}
+                                    </a>
                                 @endif
                             </div>
                         </div>

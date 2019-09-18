@@ -21,7 +21,7 @@
                             <div class="form-group row">
                                 <div class="form-check">
                                     <input type="checkbox" class="d-inline w-auto" id="service_agreement" name="service_agreement" required>
-                                    <label for="service_agreement">서비스 이용약관 동의 (필수) <a href="{{ route('serviceAgreement') }}"><i class="fas fa-arrow-right text-dark"></i></a></label>
+                                    <label for="service_agreement">서비스 이용약관 동의 (필수) <a href="{{ route('serviceAgreement') }}" class="ml-2"><i class="fas fa-arrow-right text-dark"></i></a></label>
 
                                     @error('service_agreement')
                                     <div class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                             <div class="form-group row">
                                 <div class="form-check">
                                     <input type="checkbox" class="d-inline w-auto" id="personal_agreement" name="personal_agreement" required>
-                                    <label for="personal_agreement">개인정보 이용약관 동의 (필수) <a href="{{ route('personalAgreement') }}"><i class="fas fa-arrow-right text-dark"></i></a></label>
+                                    <label for="personal_agreement">개인정보 이용약관 동의 (필수) <a class="ml-2" href="{{ route('personalAgreement') }}"><i class="fas fa-arrow-right text-dark"></i></a></label>
 
                                     @error('personal_agreement')
                                     <div class="invalid-feedback" role="alert">

@@ -177,7 +177,7 @@
                                 <img id="lets_change_video" src="{{ asset('images/card/myyoutube.png') }}" onclick="changeTag()";>
                             </div>
                             <div id="add_video_wrapper" class="{{ !empty($card->youtube) ? 'show' : '' }} zmt-10">
-                                <textarea id="add_youtube" name="youtube" tyle="text" placeholder="유튜브 공유하기 링크를 넣어주세요."></textarea>
+                                <textarea id="add_youtube" name="youtube" tyle="text" placeholder="유튜브 공유하기 링크를 넣어주세요.">{{ !empty($card->youtube) ? $card->youtube : '' }}</textarea>
                                 <button id="complete_addyoutube" type="button" onclick="completeAddvideo()">완료</button>
                             </div>
                         </div>

@@ -15,6 +15,10 @@ a:active, a:hover {
     white-space: pre-line;
 }
 
+.font-16 {
+    font-size: 16px !important;
+}
+
 #main_card_section input, #main_sub_section input {
     background: none;
 }

@@ -61,15 +61,22 @@
                             있습니다. 지금바로 나만의 명함을 만들어보세요.</p>
                     </div>
                 </div>
-                <div class="row mt-2 mb-5">
+                <div class="row mt-2">
                     <div class="col text-center">
-                        <a href="{{ route('login') }}" class="btn btn-light">{{ __('Login') }}</a>
-                    </div>
-                    <div class="col text-center">
-                        <a href="{{ route('agreement') }}" class="btn btn-dark">{{ __('Register') }}</a>
+                        <a href="/cards/10" class="btn btn-primary btn-lg btn-block font-16">샘플 보기</a>
                     </div>
                 </div>
-                @endauth
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <a href="{{ route('login') }}" class="btn btn-primary btn-lg btn-light btn-lg btn-block font-16">{{ __('Login') }}</a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <a href="{{ route('agreement') }}" class="btn btn-primary btn-lg btn-dark btn-lg btn-block font-16">{{ __('Register') }}</a>
+                    </div>
+                </div>
+            @endauth
     </div>
 @endsection
 

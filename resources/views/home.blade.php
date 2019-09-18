@@ -21,15 +21,15 @@
                         <tr>
                             <td>{{ $list->id }}</td>
                             <td>{{ $list->title }}</td>
-                            <td>
-                                <button type="button" class="btn btn-success mb-1" onclick="linkCopy(this)"
-                                        value="{{ url('cards', ['id' => $list->id], false) }}">주소복사
+                            <td class="text-right">
+                                <button type="button" class="btn btn-secondary mb-1" onclick="linkCopy(this)"
+                                        value="{{ url('cards', ['id' => $list->id], false) }}">복사
                                 </button>
-                                <a class="btn btn-info mb-1"
+                                <a class="btn btn-secondary mb-1"
                                    href="{{ route('cards.edit', ['id' => $list->details->id], false) }}">수정</a>
-                                <a class="btn btn-warning mb-1 text-white"
-                                   href="{{ route('cards.view', ['id' => $list->details->id], false) }}">명함보기</a>
-                                <button type="button" class="btn btn-danger mb-1" id="js-card_delete">삭제</button>
+                                <a class="btn btn-secondary mb-1"
+                                   href="{{ route('cards.view', ['id' => $list->details->id], false) }}">보기</a>
+                                <button type="button" class="btn btn-dark mb-1" id="js-card_delete">삭제</button>
                             </td>
                         </tr>
                     @empty
@@ -45,7 +45,7 @@
                     @isset($message)
                         <span class="text-danger">{{ $message }}</span>
                     @endisset
-                    <a href="{{ route('cards.register') }}" class="btn btn-primary">명함 만들기</a>
+                    <a href="{{ route('cards.register') }}" class="btn btn-dark">명함 만들기</a>
                 </div>
             </div>
             @else
@@ -66,7 +66,7 @@
                         <a href="{{ route('login') }}" class="btn btn-light">{{ __('Login') }}</a>
                     </div>
                     <div class="col text-center">
-                        <a href="{{ route('register') }}" class="btn btn-dark">{{ __('Register') }}</a>
+                        <a href="{{ route('agreement') }}" class="btn btn-dark">{{ __('Register') }}</a>
                     </div>
                 </div>
                 @endauth
@@ -74,6 +74,8 @@
 @endsection
 
 @section('script')
+    {{--<script src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>--}}
+    {{--<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>--}}
     <script>
         const START_IMG = document.getElementById('js-startImg');
 
@@ -106,5 +108,6 @@
                 }
             });
         @endif
+
     </script>
 @endsection

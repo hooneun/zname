@@ -1,5 +1,5 @@
 a:active, a:hover {
-    color: #ffffff !important;
+    color: #000000 !important;
     text-decoration: none !important;
 }
 
@@ -9,6 +9,10 @@ a:active, a:hover {
 
 .zmt-10 {
     margin-top: 10px;
+}
+
+.ws-pl {
+    white-space: pre-line;
 }
 
 #main_card_section input, #main_sub_section input {
@@ -154,8 +158,8 @@ i {
     width: 94vw;
     box-sizing: border-box;
     max-height: 323px;
+    -o-object-fit: scale-down;
     object-fit: scale-down;
-    border-radius: 7px;
 }
 
 #main_card_section {
@@ -557,6 +561,7 @@ input[type="url"] {
     width: 94vw;
     border: 0;
     resize: none;
+    background: none;
 }
 
 .align_address {

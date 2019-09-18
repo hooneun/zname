@@ -47,6 +47,11 @@
                     @csrf
                 </form>
             @endauth
+            @guest
+                @if (\Request::route()->getName() !== 'home')
+                <span onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+                @endif
+            @endguest
         </div>
     </nav>
 

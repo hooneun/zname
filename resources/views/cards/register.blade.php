@@ -336,8 +336,8 @@
                                         description: '{{ $card->message }}',
                                         imageUrl: '{{ url('') . '/' . asset($card->main_profile) }}',
                                         link: {
-                                            mobileWebUrl: '{{ url()->full() }}',
-                                            webUrl: '{{ url()->full() }}'
+                                            mobileWebUrl: '{{ url('/card/' . $card->phone)  }}',
+                                            webUrl: '{{ url('/card/' . $card->phone) }}'
                                         }
                                     },
                                     buttons: [

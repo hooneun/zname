@@ -22,14 +22,14 @@
                             <td>{{ $list->id }}</td>
                             <td>{{ $list->title }}</td>
                             <td class="text-right">
-                                <button type="button" class="btn btn-secondary mb-1" onclick="linkCopy(this)"
+                                <button type="button" class="btn btn-dark mb-1" onclick="linkCopy(this)"
                                         value="{{ url('card', ['id' => $list->details->phone], false) }}">복사
                                 </button>
-                                <a class="btn btn-secondary mb-1"
+                                <a class="btn btn-dark mb-1"
                                    href="{{ route('cards.edit', ['id' => $list->details->id], false) }}">수정</a>
-                                <a class="btn btn-secondary mb-1"
+                                <a class="btn btn-dark mb-1"
                                    href="{{ route('cards.view', ['id' => $list->details->id], false) }}">보기</a>
-                                <button type="button" class="btn btn-dark mb-1" id="js-card_delete">삭제</button>
+                                <button type="button" class="btn btn-danger mb-1" id="js-card_delete">삭제</button>
                             </td>
                         </tr>
                     @empty

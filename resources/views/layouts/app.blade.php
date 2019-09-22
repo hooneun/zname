@@ -42,12 +42,16 @@
                 <img src="{{ asset('images/logo.svg') }}" style="height: 16px;">
             </a>
             @auth
-                <a href="{{ route('logout') }}" class="btn btn-light"
-                onclick="event.preventDefault();
+                @if (\Request::route()->getName() !== 'home')
+                    <span onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+                @else
+                    <a href="{{ route('logout') }}" class="btn btn-light"
+                       onclick="event.preventDefault();
                         document.getElementById('logout-form').submit()">로그아웃</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @endif
             @endauth
             @guest
                 @if (\Request::route()->getName() !== 'home')

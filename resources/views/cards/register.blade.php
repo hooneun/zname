@@ -344,8 +344,8 @@
                                         {
                                             title: '자세히 보기',
                                             link: {
-                                                mobileWebUrl: '공유할 URL',
-                                                webUrl: '공유할 URL'
+                                                mobileWebUrl: '{{ url('/card/' . $card->phone)  }}',
+                                                webUrl: '{{ url('/card/' . $card->phone) }}'
                                             }
                                         }
                                     ]

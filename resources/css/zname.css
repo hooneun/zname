@@ -23,6 +23,10 @@ a:active, a:hover {
     color: #000000 !important;
 }
 
+.w-55px {
+    width: 55px;
+}
+
 #main_card_section input, #main_sub_section input {
     background: none;
 }

@@ -40,5 +40,7 @@ Route::middleware(['auth'])->group(function () {
 		->prefix('admin')
 		->group(function () {
 			Route::get('/', 'AdminController@home')->name('admin.home');
+			Route::get('/users', 'AdminController@users');
+			Route::get('/users/{id}/detail', 'AdminController@userDetail');
 		});
 });

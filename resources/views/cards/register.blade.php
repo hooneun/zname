@@ -289,7 +289,7 @@
                             @endif
                             @if ($type === 'view' && !empty($card->address))
 
-                            Kakao.init('{{ app('KAKAO_JAVASCRIPT_KEY') }}');
+                            Kakao.init('{{ env('KAKAO_JAVASCRIPT_KEY') }}');
                             function sendLink() {
                                 Kakao.Link.sendDefault({
                                     objectType: 'feed',

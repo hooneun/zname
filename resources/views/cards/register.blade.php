@@ -334,7 +334,7 @@
                                     content: {
                                         title: '{{ $card->name }}',
                                         description: '{{ $card->message }}',
-                                        imageUrl: '{{ app('APP_URL') . asset($card->main_profile) }}',
+                                        imageUrl: '{{ url('') . '/' . asset($card->main_profile) }}',
                                         link: {
                                             mobileWebUrl: '{{ url()->full() }}',
                                             webUrl: '{{ url()->full() }}'

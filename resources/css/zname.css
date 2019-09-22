@@ -19,6 +19,10 @@ a:active, a:hover {
     font-size: 16px !important;
 }
 
+.text-black {
+    color: #000000 !important;
+}
+
 #main_card_section input, #main_sub_section input {
     background: none;
 }
@@ -699,4 +703,13 @@ input[type="url"] {
         -o-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+#map {
+    max-width: 94vw;
+    min-width: 94vw;
+    width: 94vw;
+    height: 94vw;
+    display: block;
+
 }

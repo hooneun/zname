@@ -68,7 +68,7 @@
                                     @if ($type === 'view')
                                         <a href="tel:{{ str_replace('-', '', $card->phone) }}">{{ $card->phone }}</a>
                                     @else
-                                        <input id="rep_contact" type="text" placeholder="연락처 (필수, 예: 010-0000-0000)" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" value="{{ !empty($card->phone) ? $card->phone : old('phone') }}" required minlength="2" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                        <input id="rep_contact" type="text" placeholder="연락처 (필수, - 없이 숫자만) " pattern="[0-9]{3}[0-9]{4}[0-9]{4}" name="phone" value="{{ !empty($card->phone) ? $card->phone : old('phone') }}" required minlength="2" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                                     @endif
                                 </div>
 
@@ -94,13 +94,20 @@
                             @if ($type === 'view' && !blank($card->cafe) || $type === 'register' || $type === 'edit')
                             <div class="spec_section">
                                 <div class="img_wrapper"><i class="fas fa-mug-hot"></i></div>
+                                @if ($type === 'register' || $type === 'edit')
                                 <input id="rep_cafe" type="text" placeholder="카페 또는 블로그 (선택)" name="cafe" value="{{ !empty($card->cafe) ? $card->cafe : old('cafe') }}" minlength="2" ize="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                @else
+                                    <a class="w-100 text-black" href="{{ $card->cafe }}" target="_blank">{{ $card->cafe }}</a>
+                                @endif
                             </div>
                             @endif
                                 @if ($type === 'view' && !blank($card->address))
-                                <div class="spec_section">
+                                <div id="mapOpen" class="spec_section">
                                     <div class="img_wrapper align_address"><i class="fas fa-map-marker-alt"></i></div>
                                     <textarea id="rep_address" type="text" placeholder="주소 (선택)" name="address" required minlength="1" size="16" disabled>{{ !empty($card->address) ? trim($card->address) : old('address') }}</textarea>
+                                </div>
+                                <div>
+                                    <div id="map" class="d-none"></div>
                                 </div>
                                 @endif
                                 @if ($type === 'register' || $type === 'edit')
@@ -244,8 +251,10 @@
                                 @endif
                             </button>
                         </div>
-                        @section('script')
+                    @endif
+                    @section('script')
                         <script>
+                            @if ($type === 'register' || $type === 'edit')
                             const REGISTER_BTN = document.getElementById('js-register-btn');
                             const REGISTER_FORM = document.getElementById('js-register-form');
 
@@ -264,7 +273,7 @@
                                         alert('ZNAME 수정이 완료되었습니다.');
                                         @endif
 
-                                        location.href = '/cards/' + response.data.id;
+                                            location.href = '/cards/' + response.data.id;
                                     })
                                     .catch(function (errors) {
                                         const error = errors.response.data.errors;
@@ -272,9 +281,55 @@
                                         alert(error[Object.keys(error)[0]][0]);
                                     });
                             };
+                            @endif
+                            @if ($type === 'view' && !empty($card->address))
+
+                            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                                mapOption = {
+                                    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                                    level: 3 // 지도의 확대 레벨
+                                };
+                            document.getElementById('mapOpen').onclick = function () {
+                                if (mapContainer.classList.contains('d-none')) {
+                                    mapContainer.classList.remove('d-none');
+                                } else {
+                                    mapContainer.classList.add('d-none');
+                                }
+                            };
+
+                            // 지도를 생성합니다
+                            var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                            // 주소-좌표 변환 객체를 생성합니다
+                            var geocoder = new kakao.maps.services.Geocoder();
+
+                            // 주소로 좌표를 검색합니다
+                            geocoder.addressSearch('{{ $card->address }}', function (result, status) {
+
+                                // 정상적으로 검색이 완료됐으면
+                                if (status === kakao.maps.services.Status.OK) {
+
+                                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                                    // 결과값으로 받은 위치를 마커로 표시합니다
+                                    var marker = new kakao.maps.Marker({
+                                        map: map,
+                                        position: coords
+                                    });
+
+                                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                                    var infowindow = new kakao.maps.InfoWindow({
+                                        content: '<div style="width:150px;text-align:center;padding:6px 0;">{{ $card->address }}</div>'
+                                    });
+                                    infowindow.open(map, marker);
+
+                                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                                    map.setCenter(coords);
+                                }
+                            });
+                            @endif
                         </script>
-                        @endsection
-                    @endif
+                    @endsection
                 </div>
             </div>
         </form>

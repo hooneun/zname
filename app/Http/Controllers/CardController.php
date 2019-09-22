@@ -20,7 +20,7 @@ class CardController extends Controller
 
 	public function __construct()
 	{
-		$this->middleware('auth', ['except' => ['index', 'show']]);
+		$this->middleware('auth', ['except' => ['index', 'show', 'showPhone']]);
 	}
 
 	/**
@@ -51,7 +51,14 @@ class CardController extends Controller
 			return $this->index();
 		}
 
-		return view('cards.register', ['type' => 'register']);
+		$card = Auth::user();
+		$card['phone'] = $card['contact_address'];
+		$card['job'] = $card['position'];
+
+		return view('cards.register', [
+			'type' => 'register',
+			'card' => $card,
+		]);
 	}
 
 	/**
@@ -70,7 +77,7 @@ class CardController extends Controller
 	 * @param  \Illuminate\Http\Request $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(Request $request, $phone)
 	{
 		$userId = Auth::id();
 		$cardCount = Card::whereUserId($userId)->count();
@@ -123,6 +130,14 @@ class CardController extends Controller
 		return view('cards.register', compact('card', 'type'));
 	}
 
+	public function showPhone($phone)
+	{
+		$card = Detail::where(['phone' => $phone])
+			->first();
+		$type = 'view';
+
+		return view('cards.register', compact('card', 'type'));
+	}
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -221,7 +236,7 @@ class CardController extends Controller
 			'name' => ['required', 'between:1,15'],
 			'job' => ['required', 'between:2,15'],
 			'address' => ['nullable', 'between:1, 50'],
-			'phone' => ['required', 'regex:/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/'],
+			'phone' => ['required', 'regex:/^01([0|1|6|7|8|9]?)([0-9]{3,4})([0-9]{4})$/'],
 			'message' => ['required', 'between:5,25'],
 			'email' => ['required', 'email'],
 			'cafe' => ['nullable', 'active_url'],
@@ -270,7 +285,7 @@ class CardController extends Controller
 			'name' => ['required', 'between:1,15'],
 			'job' => ['required', 'between:2,15'],
 			'address' => ['nullable', 'between:1, 50'],
-			'phone' => ['required', 'regex:/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/'],
+			'phone' => ['required', 'regex:/^01([0|1|6|7|8|9]?)([0-9]{3,4})([0-9]{4})$/'],
 			'message' => ['required', 'between:5,25'],
 			'email' => ['required', 'email'],
 			'cafe' => ['nullable', 'active_url'],

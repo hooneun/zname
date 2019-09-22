@@ -81,8 +81,6 @@
 @endsection
 
 @section('script')
-    {{--<script src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>--}}
-    {{--<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>--}}
     <script>
         const START_IMG = document.getElementById('js-startImg');
 

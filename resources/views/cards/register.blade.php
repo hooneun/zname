@@ -140,9 +140,9 @@
                                 <img src="{{ asset('images/card/socialbandicon.svg') }}" onclick="changeBA();">
                             </a>
                             @endif
-                            @if ($type === 'view' && !blank($card->kakao) || $type === 'register' || $type === 'edit')
-                            <a id="kakao_url" href="{{ !empty($card->kakao) ? $card->kakao : 'javascript:void(0)' }}"  {{ !empty($card->band) ? 'target="_blank"' : '' }}>
-                                <img src="{{ asset('images/card/socialkakaostory.svg') }}" onclick="changeKA();">
+                            @if ($type === 'view')
+                            <a id="kakao_url" href="javascript:sendLink()">
+                                <img src="{{ asset('images/card/kakatoshare.png') }}">
                             </a>
                             @endif
                         </div>
@@ -327,6 +327,30 @@
                                     map.setCenter(coords);
                                 }
                             });
+                            Kakao.init('07bf2ece600b81f0ccafbe73335246ad');
+                            function sendLink() {
+                                Kakao.Link.sendDefault({
+                                    objectType: 'feed',
+                                    content: {
+                                        title: '{{ $card->name }}',
+                                        description: '{{ $card->message }}',
+                                        imageUrl: '{{ app('APP_URL') . asset($card->main_profile) }}',
+                                        link: {
+                                            mobileWebUrl: '{{ url()->full() }}',
+                                            webUrl: '{{ url()->full() }}'
+                                        }
+                                    },
+                                    buttons: [
+                                        {
+                                            title: '자세히 보기',
+                                            link: {
+                                                mobileWebUrl: '공유할 URL',
+                                                webUrl: '공유할 URL'
+                                            }
+                                        }
+                                    ]
+                                });
+                            }
                             @endif
                         </script>
                     @endsection

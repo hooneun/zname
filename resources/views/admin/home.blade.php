@@ -21,12 +21,14 @@
                     <tr id="user_{{ $user->id }}">
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->cards_count }}</td>
+                        <td>{{ count($user->cards) }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->contact_address }}</td>
                         <td>{{ date('y.m.d', strtotime($user->created_at)) }}</td>
                         <td>
+                            <button type="button" class="btn btn-success w-55px" onclick="cardView({{ $user->cards }})">보기</button>
                             <button type="button" class="btn btn-primary w-55px" onclick="detail({{ $user->id }})">수정</button>
+                            <button type="button" class="btn btn-danger w-55px" onclick="deleted({{ $user->id }})">삭제</button>
                         </td>
                     </tr>
                 @endforeach
@@ -49,10 +51,41 @@
 @section('script')
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+
+        function cardView(cards) {
+            if (cards.length < 1) {
+                alert('생성된 명함이 없습니다.');
+            } else {
+                axios.get('/admin/users/card/' + cards[0].id)
+                    .then(function (response) {
+                        window.open('/cards/' + response.data.card.id, '_blank');
+                    })
+                    .catch(function (errors) {
+                        alert('명함 불러오기에 실패했습니다.');
+                    })
+            }
+        }
+        function deleted(id) {
+            if (confirm('정말 삭제하시겠습니까?')) {
+                axios.post('/admin/users/delete', {id: id})
+                    .then(function (response) {
+                        alert('삭제되었습니다.');
+                        location.reload();
+                    })
+                    .catch(function (errors) {
+                        if (errors.response.data.message) {
+                            alert(errors.response.data.message);
+                        } else {
+                            alert('삭제에 실패했습니다');
+                        }
+                    });
+            }
+        }
         function detail(id) {
             axios.get('/admin/users/' + id + '/detail')
                 .then(function (response) {
                     const user = response.data.user;
+
                     document.getElementById('detail').innerHTML =  userDetailTemplate(user);
                     document.getElementById('detailView').classList.add('d-block');
                 })

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Card;
+use App\Detail;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +17,8 @@ class AdminController extends Controller
 
 	public function home()
 	{
-		$users = User::withCount('cards')->orderBy('created_at', 'desc')->paginate(10);
+		$users = User::with(['cards'])
+			->orderBy('created_at', 'desc')->paginate(10);
 
 		return view('admin.home', compact('users'));
 	}
@@ -56,6 +59,25 @@ class AdminController extends Controller
 
 		return response()->json(compact('update'), 200);
 
+	}
+
+	public function userDelete(Request $request)
+	{
+		if (User::find($request->id)->admin === 1) {
+			return response()->json([
+				'message' => '관리자는 삭제할수없습니다.'
+			], 422);
+		}
+		$delete = User::destroy($request->id);
+
+		return response()->json(compact('delete'), 200);
+	}
+
+	public function userCardIdGet($id)
+	{
+		$card = Detail::where('card_id', $id)->first('id');
+
+		return response()->json(compact('card'), 200);
 	}
 
 	protected function validator(array $data)

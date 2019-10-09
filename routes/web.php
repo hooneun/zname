@@ -46,5 +46,7 @@ Route::middleware(['auth'])->group(function () {
 			Route::get('/users', 'AdminController@users');
 			Route::get('/users/{id}/detail', 'AdminController@userDetail');
 			Route::post('/users/update', 'AdminController@userUpdate');
+			Route::post('/users/delete', 'AdminController@userDelete');
+			Route::get('/users/card/{id}', 'AdminController@userCardIdGet');
 		});
 });

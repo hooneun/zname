@@ -254,11 +254,13 @@
                     @endif
                     @section('script')
                         <script>
+                            @if($type === 'view')
                             const MAP_OPEN_BTN = document.getElementById('mapOpen');
 
                             MAP_OPEN_BTN.onclick = function () {
                                 location.href = '{{ url('/cards/map', ['id' => $card->id], false) }}'
                             }
+                            @endif
                             @if ($type === 'register' || $type === 'edit')
                             const REGISTER_BTN = document.getElementById('js-register-btn');
                             const REGISTER_FORM = document.getElementById('js-register-form');

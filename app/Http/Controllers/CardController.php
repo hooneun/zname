@@ -77,7 +77,7 @@ class CardController extends Controller
 	 * @param  \Illuminate\Http\Request $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request, $phone)
+	public function store(Request $request)
 	{
 		$userId = Auth::id();
 		$cardCount = Card::whereUserId($userId)->count();

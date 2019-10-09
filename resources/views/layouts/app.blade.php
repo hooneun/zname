@@ -7,7 +7,7 @@
 
     @if (Route::currentRouteName() !== 'card.view')
     <meta property="og:image" content="{{ asset('images/ogimage.png') }}">
-    <meta property="og:description" content="ZNAME은 온라인 명함 플랫폼입니다.">
+    <meta property="og:description" content="올네임은 온라인 명함 플랫폼입니다.">
     @endif
 
     <!-- CSRF Token -->
@@ -39,7 +39,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ asset('images/logo.svg') }}" style="height: 16px;">
+                <img src="{{ asset('images/logo.png') }}" style="height: 16px;">
             </a>
             @auth
                 @if (\Request::route()->getName() !== 'home')

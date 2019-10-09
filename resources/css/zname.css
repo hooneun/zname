@@ -710,6 +710,14 @@ input[type="url"] {
 }
 
 #map {
+     max-width: 94vw;
+     min-width: 94vw;
+     width: 94vw;
+     height: 94vw;
+     display: block;
+
+ }
+#roadview {
     max-width: 94vw;
     min-width: 94vw;
     width: 94vw;

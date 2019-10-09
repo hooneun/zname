@@ -27,6 +27,8 @@ class AdminController extends Controller
 
 	public function userDetail($id)
 	{
+		$user = User::find($id);
 
+		return response()->json(compact('user'));
 	}
 }

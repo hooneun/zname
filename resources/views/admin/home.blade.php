@@ -16,13 +16,13 @@
                 </thead>
                 <tbody>
                 @foreach ($users as $user)
-                    <tr>
+                    <tr id="user_{{ $user->id }}">
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->cards_count }}</td>
                         <td>{{ date('y.m.d', strtotime($user->created_at)) }}</td>
                         <td>
-                            <button type="button" class="btn btn-primary w-55px" @click="detail(user.id)">보기</button>
+                            <button type="button" class="btn btn-primary w-55px" onclick="detail({{ $user->id }})">보기</button>
                         </td>
                     </tr>
                 @endforeach
@@ -36,5 +36,38 @@
     </div>
 
 @section('script')
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function detail(id) {
+            axios.get('/admin/users/' + id + '/detail')
+                .then(function (response) {
+                    const user = response.data.user;
+                    const detailElement = document.getElementsByClassName('detail');
+                    const detailElementLength = detailElement.length;
+
+                    if (detailElementLength > 0) {
+                        for (let i = 0; i < detailElementLength; i++) {
+                            detailElement[i].remove();
+                        }
+                    }
+
+                    document.getElementById('user_' + id).insertAdjacentHTML('afterend', userDetailTemplate(user))
+                })
+                .catch(function (error) {
+
+                });
+        }
+
+        function userDetailTemplate(user) {
+            return '<tr class="detail">' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                '</tr>';
+        }
+    </script>
+
 @endsection
 @endsection

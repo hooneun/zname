@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="js-startImg" class="loader_background h-100 w-100 position-absolute fixed-top">
-        <img src="{{ asset('images/loader.svg') }}">
-    </div>
+    {{--<div id="js-startImg" class="loader_background h-100 w-100 position-absolute fixed-top">--}}
+        {{--<img src="{{ asset('images/loader.svg') }}">--}}
+    {{--</div>--}}
     <div class="container">
         @auth
             <div class="row">
@@ -34,7 +34,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="text-center">ZNAME을 생성해주세요.</td>
+                            <td colspan="4" class="text-center">올네임을 생성해주세요.</td>
                         </tr>
                     @endforelse
                     </tbody>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col text-center">
-                        <a href="/cards/guide" class="btn btn-primary btn-lg btn-block font-16">이용가이드</a>
+                        <a href="/cards/guide" class="btn btn-warning btn-lg btn-block font-16">이용가이드</a>
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -87,23 +87,23 @@
 
 @section('script')
     <script>
-        const START_IMG = document.getElementById('js-startImg');
+        {{--const START_IMG = document.getElementById('js-startImg');--}}
 
-        @if (config('app.env') === 'production')
-        if (!localStorage.getItem('START_LOGO')) {
-            localStorage.setItem('START_LOGO', true);
-            setTimeout(function () {
-                START_IMG.classList.add('fade');
-                setTimeout(function () {
-                    START_IMG.style.display = 'none';
-                }, 2000)
-            }, 1000);
-        } else {
-            START_IMG.style.display = 'none';
-        }
-        @else
-            START_IMG.style.display = 'none';
-        @endif
+        {{--@if (config('app.env') === 'production')--}}
+        {{--if (!localStorage.getItem('START_LOGO')) {--}}
+            {{--localStorage.setItem('START_LOGO', true);--}}
+            {{--setTimeout(function () {--}}
+                {{--START_IMG.classList.add('fade');--}}
+                {{--setTimeout(function () {--}}
+                    {{--START_IMG.style.display = 'none';--}}
+                {{--}, 2000)--}}
+            {{--}, 1000);--}}
+        {{--} else {--}}
+            {{--START_IMG.style.display = 'none';--}}
+        {{--}--}}
+        {{--@else--}}
+            {{--START_IMG.style.display = 'none';--}}
+        {{--@endif--}}
 
         function linkCopy (obj) {
             Copy(obj.value);

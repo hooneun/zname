@@ -66,9 +66,9 @@
                                 <div class="spec_section">
                                     <div class="img_wrapper"><i class="fas fa-mobile-alt"></i></div>
                                     @if ($type === 'view')
-                                        <a href="tel:{{ str_replace('-', '', $card->phone) }}">{{ $card->phone }}</a>
+                                        <a href="tel:{{ $card->phone }}">{{ preg_replace("/([0-9]{3})([0-9]{4})([0-9]{4})/", "$1-$2-$3", $card->phone) }}</a>
                                     @else
-                                        <input id="rep_contact" type="text" placeholder="연락처 (필수, - 없이 숫자만) " pattern="[0-9]{3}[0-9]{4}[0-9]{4}" name="phone" value="{{ !empty($card->phone) ? $card->phone : old('phone') }}" required minlength="2" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                        <input id="rep_contact" type="tel" placeholder="연락처 (필수, - 없이 숫자만) " pattern="[0-9]{3}[0-9]{4}[0-9]{4}" name="phone" value="{{ !empty($card->phone) ? $card->phone : old('phone') }}" required minlength="2" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                                     @endif
                                 </div>
 
@@ -144,6 +144,10 @@
                             <a id="kakao_url" href="javascript:sendLink()">
                                 <img src="{{ asset('images/card/kakatoshare.png') }}">
                             </a>
+                            @else
+                            {{--<a id="band_url" href="{{ !empty($card->band) ? $card->band : 'javascript:void(0)' }}" {{ !empty($card->band) ? 'target="_blank"' : '' }}>--}}
+                                <img src="{{ asset('images/sns_icons/kakao.png') }}" onclick="alert('자동설정되었습니다.');">
+                            {{--</a>--}}
                             @endif
                         </div>
                         @if ($type === 'register' || $type === 'edit')
@@ -275,9 +279,9 @@
                                     .then(function (response) {
                                         loadingOff();
                                         @if ($type === 'register')
-                                        alert('ZNAME 생성이 완료되었습니다.');
+                                        alert('올네임 생성이 완료되었습니다.');
                                         @else
-                                        alert('ZNAME 수정이 완료되었습니다.');
+                                        alert('올네임 수정이 완료되었습니다.');
                                         @endif
 
                                             location.href = '/cards/' + response.data.id;

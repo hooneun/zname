@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'dnepdrn@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'ZNAME SUPPORT'),
+        'name' => env('MAIL_FROM_NAME', '올네임 SUPPORT'),
     ],
 
     /*

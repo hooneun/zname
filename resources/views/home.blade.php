@@ -66,6 +66,11 @@
                         <a href="/cards/10" class="btn btn-primary btn-lg btn-block font-16">샘플 보기</a>
                     </div>
                 </div>
+                <div class="row mt-2">
+                    <div class="col text-center">
+                        <a href="/cards/guide" class="btn btn-primary btn-lg btn-block font-16">이용가이드</a>
+                    </div>
+                </div>
                 <div class="row mt-3">
                     <div class="col text-center">
                         <a href="{{ route('login') }}" class="btn btn-primary btn-lg btn-light btn-lg btn-block font-16">{{ __('Login') }}</a>

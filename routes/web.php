@@ -23,6 +23,9 @@ Route::get('/personalAgreement', function () {
 	return view('auth.personalAgreement');
 })->name('personalAgreement');
 
+Route::get('/cards/guide', function () {
+	return view('cards.guide');
+});
 Route::get('/cards/register', 'CardController@showRegistrationForm');
 Route::post('/cards/register', 'CardController@store')->name('cards.register');
 Route::get('/cards/{id}/edit', 'CardController@edit')->name('cards.edit');

@@ -10,6 +10,8 @@
                     <td>#</td>
                     <td>회원이름</td>
                     <td>명함</td>
+                    <td>아이디</td>
+                    <td>휴대폰 번호</td>
                     <td>가입일자</td>
                     <td></td>
                 </tr>
@@ -20,9 +22,11 @@
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->cards_count }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->contact_address }}</td>
                         <td>{{ date('y.m.d', strtotime($user->created_at)) }}</td>
                         <td>
-                            <button type="button" class="btn btn-primary w-55px" onclick="detail({{ $user->id }})">보기</button>
+                            <button type="button" class="btn btn-primary w-55px" onclick="detail({{ $user->id }})">수정</button>
                         </td>
                     </tr>
                 @endforeach
@@ -30,6 +34,13 @@
             </table>
             <div class="w-100 d-flex justify-content-center">
                 {{ $users->links() }}
+            </div>
+
+            <div id="detailView" class="d-none">
+                <form method="post" name="formDetail" id="formDetail">
+                <div class="pl-3 mb-1">상세정보</div>
+                <div id="detail" class="border border-secondary p-3"></div>
+                </form>
             </div>
 
         </div>
@@ -42,30 +53,56 @@
             axios.get('/admin/users/' + id + '/detail')
                 .then(function (response) {
                     const user = response.data.user;
-                    const detailElement = document.getElementsByClassName('detail');
-                    const detailElementLength = detailElement.length;
-
-                    if (detailElementLength > 0) {
-                        for (let i = 0; i < detailElementLength; i++) {
-                            detailElement[i].remove();
-                        }
-                    }
-
-                    document.getElementById('user_' + id).insertAdjacentHTML('afterend', userDetailTemplate(user))
+                    document.getElementById('detail').innerHTML =  userDetailTemplate(user);
+                    document.getElementById('detailView').classList.add('d-block');
                 })
                 .catch(function (error) {
 
                 });
         }
 
+        function updateUser()
+        {
+            const form = document.getElementById('formDetail');
+            const name = form.name.value;
+            const password = form.password.value;
+            const password_confirmation = form.password_confirmation.value;
+            const contact_address = form.contact_address.value;
+
+            const data = {
+                id: form.id.value,
+                name : name,
+                password: password,
+                password_confirmation: password_confirmation,
+                contact_address: contact_address
+            };
+
+            axios.post('/admin/users/update', data)
+                .then(function (response) {
+                    alert('변경되었습니다.');
+
+                    location.reload();
+                })
+                .catch(function (errors) {
+                    const error = errors.response.data.errors;
+
+                    for (var _error in error) {
+                        alert(error[_error][0]);
+                        return;
+                    }
+                })
+        }
+
         function userDetailTemplate(user) {
-            return '<tr class="detail">' +
-                    '<td></td>' +
-                    '<td></td>' +
-                    '<td></td>' +
-                    '<td></td>' +
-                    '<td></td>' +
-                '</tr>';
+            return '<div class="detail">' +
+                    '<input type="hidden" name="id" value="' + user.id + '">' +
+                    '<div>아이디: ' + user.email + '</div>' +
+                    '<div>이름: <input type="text" class="form-control d-inline" name="name" id="name" value="' + user.name + '"></div>' +
+                    '<div>비밀번호: <input type="password" class="form-control d-inline" name="password" id="password" value=""></div>' +
+                    '<div>비밀번호 확인: <input type="password" class="form-control d-inline" name="password_confirmation" id="password_confirmation" value=""></div>' +
+                    '<div>휴대번호: <input type="text" class="form-control d-inline" name="contact_address" id="contact_address" value="' + user.contact_address + '"></div>' +
+                    '<button type="button" class="btn btn-primary mt-4" onclick="updateUser()">수정하기</button>' +
+                '</div>';
         }
     </script>
 

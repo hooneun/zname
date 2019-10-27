@@ -55,7 +55,7 @@
             @endauth
             @guest
                 @if (\Request::route()->getName() !== 'home')
-                <span onclick="history.back()"><i class="fas fa-arrow-left"></i></span>
+                <span onclick="history.back()"><i class="fas fa-chevron-left"></i></span>
                 @endif
             @endguest
         </div>

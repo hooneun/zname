@@ -46,8 +46,14 @@
                                 <img src="{{ asset($card->main_image_url) }}">
                             @endif
                         @elseif ($type === 'register' || $type === 'edit')
-                            <input id="main_pic" type="file" name="main_image" value="{{ !empty($card->main_image_url) ? $card->main_image_url : old('main_image') }}" onchange="readURL(this);"/>
-                            <img onclick="click_to_change('main_pic')" src="{{ !empty($card->main_image_url) ? asset($card->main_image_url) : asset('images/card/main_img.png') }}">
+                            @if ($init)
+                                <input id="main_pic" type="file" name="main_image" value="{{ old('main_image') }}" onchange="readURL(this);"/>
+                                <img onclick="click_to_change('main_pic')" src="{{ asset('images/card/main_img.png') }}">
+                            @else
+                                <input id="main_pic" type="file" name="main_image" value="{{ !empty($card->main_image_url) ? $card->main_image_url : old('main_image') }}" onchange="readURL(this);"/>
+                                <img onclick="click_to_change('main_pic')" src="{{ !empty($card->main_image_url) ? asset($card->main_image_url) : asset('images/card/main_img.png') }}">
+                            @endif
+
                         @endif
                     </div>
                     <div id="main_card_section">
@@ -59,8 +65,13 @@
                                 <img src="{{ asset($card->main_profile_url) }}">
                                 @endif
                             @elseif ($type === 'register' || $type === 'edit')
-                                <input id="main_photo" type="file" name="main_profile" value="{{ !empty($card->main_profile_url) ? asset($card->main_profile_url) : old('main_profile') }}" onchange="readURL(this);"/>
-                                <img onclick="click_to_change('main_photo')" src="{{ !empty($card->main_profile_url) ? asset($card->main_profile_url) : asset('images/card/myprofilephoto.png') }}">
+                                @if ($init)
+                                    <input id="main_photo" type="file" name="main_profile" value="{{ old('main_profile') }}" onchange="readURL(this);"/>
+                                    <img onclick="click_to_change('main_photo')" src="{{ asset('images/card/myprofilephoto.png') }}">
+                                @else
+                                    <input id="main_photo" type="file" name="main_profile" value="{{ !empty($card->main_profile_url) ? asset($card->main_profile_url) : old('main_profile') }}" onchange="readURL(this);"/>
+                                    <img onclick="click_to_change('main_photo')" src="{{ !empty($card->main_profile_url) ? asset($card->main_profile_url) : asset('images/card/myprofilephoto.png') }}">
+                                @endif
                             @endif
                         </div>
                         <div id="main_right_section">

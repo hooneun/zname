@@ -80,7 +80,7 @@
                             <div class="speficif_spec">
                                 <div class="spec_section">
                                     <div class="img_wrapper"><i class="fab fa-black-tie"></i></div>
-                                    <input id="rep_job" type="text" placeholder="직업 (필수, 최대15자)" name="job" value="{{ !empty($card->job) ? $card->job : old('job') }}" required minlength="1" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                    <input id="rep_job" type="text" placeholder="직업 (필수, 최소2자이상 최대15자이하)" name="job" value="{{ !empty($card->job) ? $card->job : old('job') }}" required minlength="1" maxlength="20" size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                                 </div>
 
                                 <div class="spec_section">
@@ -108,7 +108,7 @@
                             @if ($type === 'view' && !blank($card->email) || $type === 'register' || $type === 'edit')
                             <div class="spec_section">
                                 <div class="img_wrapper"><i class="fas fa-comments"></i></div>
-                                <input id="today_comment" type="text" placeholder="오늘의 한마디 (필수, 최대 25자)" name="message" value="{{ !empty($card->message) ? $card->message : old('message') }}" minlength="2" maxlength="30" required size="16" {{ $type === 'view' ? 'disabled' : '' }}>
+                                <input id="today_comment" type="text" placeholder="오늘의 한마디 (필수, 최소5자이상 최대 25자이하)" name="message" value="{{ !empty($card->message) ? $card->message : old('message') }}" minlength="2" maxlength="30" required size="16" {{ $type === 'view' ? 'disabled' : '' }}>
                             </div>
                             @endif
                             @if ($type === 'view' && !blank($card->cafe) || $type === 'register' || $type === 'edit')

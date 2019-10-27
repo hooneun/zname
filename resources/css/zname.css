@@ -732,14 +732,6 @@ input[type="url"] {
     width: 10vw;
 }
 
-#today_comment::placeholder {
-    color: #ff0000
-}
-
-#card_type::placeholder {
-    color: #ff0000
-}
-
 .form-check-inline .form-check-input {
     width: auto;
     margin-left: 10px !important;

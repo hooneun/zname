@@ -20,7 +20,7 @@
                     @forelse($cardList as $list)
                         <tr>
                             <td>{{ $list->id }}</td>
-                            <td>{{ $list->title }}</td>
+                            <td class="home_card_title">{{ $list->title }}</td>
                             <td class="text-right">
                                 <button type="button" class="btn btn-dark mb-1" onclick="linkCopy(this)"
                                         value="{{ url('card', ['id' => $list->details->phone], false) }}">복사

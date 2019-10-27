@@ -153,12 +153,13 @@ class CardController extends Controller
 			->first();
 		$type = 'edit';
 
-		$title = Card::whereId($card->card_id)->first('title');
+		$title = Card::whereId($card->card_id)->first(['title', 'init']);
+		$init = $title->init;
 
 		$card['title'] = $title->title;
 
 
-		return view('cards.register', compact('card', 'type'));
+		return view('cards.register', compact('card', 'type', 'init'));
 	}
 
 	/**

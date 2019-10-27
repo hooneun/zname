@@ -258,9 +258,15 @@
                                 <div class="wit-spc">{{ $card->ad_content_top }}</div>
                                 @endif
                             @elseif ($type === 'register' || $type === 'edit')
-                            <input id="ad_sec1" type="file" name="ad_image_top" onchange="readURL(this);" value="{{ !empty($card->ad_image_top_url) ? asset($card->ad_image_top_url) : '' }}"/>
-                            <img onclick="click_to_change('ad_sec1')" src="{{ !empty($card->ad_image_top_url) ? asset($card->ad_image_top_url) : asset('images/card/adsection1.png') }}">
-                            <textarea id="ad_contetn1" onkeyup="auto_grow(this)" name="ad_content_top" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요." {{ $type === 'view' ? 'disabled' : '' }}>{{ !empty($card->ad_content_top) ? $card->ad_content_top : '' }}</textarea>
+                                @if ($init)
+                                    <input id="ad_sec1" type="file" name="ad_image_top" onchange="readURL(this);" value=""/>
+                                    <img onclick="click_to_change('ad_sec1')" src="{{ asset('images/card/adsection1.png') }}">
+                                    <textarea id="ad_contetn1" onkeyup="auto_grow(this)" name="ad_content_top" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요."></textarea>
+                                @else
+                                    <input id="ad_sec1" type="file" name="ad_image_top" onchange="readURL(this);" value="{{ !empty($card->ad_image_top_url) ? asset($card->ad_image_top_url) : '' }}"/>
+                                    <img onclick="click_to_change('ad_sec1')" src="{{ !empty($card->ad_image_top_url) ? asset($card->ad_image_top_url) : asset('images/card/adsection1.png') }}">
+                                    <textarea id="ad_contetn1" onkeyup="auto_grow(this)" name="ad_content_top" rows="4" cols="50" placeholder="필요한 안내,홍보,광고문구를 넣어주세요." {{ $type === 'view' ? 'disabled' : '' }}>{{ !empty($card->ad_content_top) ? $card->ad_content_top : '' }}</textarea>
+                                @endif
                             @endif
                         </div>
                         <div>

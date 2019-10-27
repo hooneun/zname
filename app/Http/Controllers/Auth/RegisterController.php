@@ -110,7 +110,7 @@ class RegisterController extends Controller
 		$card = DB::transaction(function () use ($user) {
 			$card = Card::create([
 				'user_id' => $user->id,
-				'title' => $user->name . '님의 명합니다.',
+				'title' => $user->name . '님의 명함입니다.',
 				'init' => true,
 			]);
 

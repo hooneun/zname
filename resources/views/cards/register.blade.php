@@ -152,7 +152,7 @@
 
 
                             @if ($type === 'view')
-                                    <a id="twitter_url" href="{{ !empty($card->twitter) ? $card->twitter : 'javascript:alert("' . $card->name . '님의 트위트는 준비중입니다.' . '")' }}" {{ !empty($card->twitter) ? 'target="_blank"' : '' }}>
+                                    <a id="twitter_url" href="{{ !empty($card->twitter) ? $card->twitter : 'javascript:alert("' . $card->name . '님의 트위터는 준비중입니다.' . '")' }}" {{ !empty($card->twitter) ? 'target="_blank"' : '' }}>
                                         <img src="{{ asset('images/card/socialtwittericon.svg') }}" onclick="changeTW();">
                                     </a>
                             @elseif ($type === 'register' || $type == 'edit')
@@ -354,7 +354,7 @@
                                     });
                             };
                             @endif
-                            @if ($type === 'view' && !empty($card->address))
+                            @if ($type === 'view')
 
                             Kakao.init('07bf2ece600b81f0ccafbe73335246ad');
                             function sendLink() {

@@ -128,26 +128,50 @@
                     </div>
                     <div id="social_link">
                         <div id="button_wrapper">
-                            @if ($type === 'view' && isset($card->facebook) || $type === 'register' || $type === 'edit')
+                            @if ($type === 'view')
+                                <a id="facebook_url" href="{{ !empty($card->facebook) ? $card->facebook : 'javascript:alert("' . $card->name . '님의 페이스북은 준비중입니다.' . '")' }}" {{ !empty($card->facebook) ? 'target="_blank"' : '' }}>
+                                    <img src="{{ asset('images/card/socialfacebookicon.svg') }}">
+                                </a>
+                            @elseif ($type === 'register' || $type === 'edit')
                             <a id="facebook_url" href="{{ !empty($card->facebook) ? $card->facebook : 'javascript:void(0)' }}" {{ !empty($card->facebook) ? 'target="_blank"' : '' }}>
                                 <img src="{{ asset('images/card/socialfacebookicon.svg') }}" onclick="changeFB();">
                             </a>
                             @endif
-                            @if ($type === 'view' && isset($card->twitter) || $type === 'register' || $type == 'edit')
+
+
+                            @if ($type === 'view')
+                                    <a id="twitter_url" href="{{ !empty($card->twitter) ? $card->twitter : 'javascript:alert("' . $card->name . '님의 트위트는 준비중입니다.' . '")' }}" {{ !empty($card->twitter) ? 'target="_blank"' : '' }}>
+                                        <img src="{{ asset('images/card/socialtwittericon.svg') }}" onclick="changeTW();">
+                                    </a>
+                            @elseif ($type === 'register' || $type == 'edit')
                             <a id="twitter_url" href="{{ !empty($card->twitter) ? $card->twitter : 'javascript:void(0)' }}" {{ !empty($card->twitter) ? 'target="_blank"' : '' }}>
                                 <img src="{{ asset('images/card/socialtwittericon.svg') }}" onclick="changeTW();">
                             </a>
                             @endif
-                            @if ($type === 'view' && !blank($card->instagram) || $type === 'register' || $type === 'edit')
+
+
+                            @if ($type === 'view')
+                                <a id="instagram_url" href="{{ !empty($card->instagram) ? $card->instagram : 'javascript:alert("' . $card->name . '님의 인스타그램은 준비중입니다.' . '")'}}" {{ !empty($card->instagram) ? 'target="_blank"' : '' }}>
+                                    <img src="{{ asset('images/card/socialinstagramicon.svg') }}" onclick="changeIN();">
+                                </a>
+                            @elseif ($type === 'register' || $type === 'edit')
                             <a id="instagram_url" href="{{ !empty($card->instagram) ? $card->instagram : 'javascript:void(0)' }}" {{ !empty($card->instagram) ? 'target="_blank"' : '' }}>
                                 <img src="{{ asset('images/card/socialinstagramicon.svg') }}" onclick="changeIN();">
                             </a>
                             @endif
-                            @if ($type === 'view' && !blank($card->band) || $type === 'register' || $type === 'edit')
+
+
+                            @if ($type === 'view')
+                                <a id="band_url" href="{{ !empty($card->band) ? $card->band : 'javascript:alert("' . $card->name . '님의 밴드는 준비중입니다.' . '")' }}" {{ !empty($card->band) ? 'target="_blank"' : '' }}>
+                                    <img src="{{ asset('images/card/socialbandicon.svg') }}" onclick="changeBA();">
+                                </a>
+                            @elseif ($type === 'register' || $type === 'edit')
                             <a id="band_url" href="{{ !empty($card->band) ? $card->band : 'javascript:void(0)' }}" {{ !empty($card->band) ? 'target="_blank"' : '' }}>
                                 <img src="{{ asset('images/card/socialbandicon.svg') }}" onclick="changeBA();">
                             </a>
                             @endif
+
+
                             @if ($type === 'view')
                             <a id="kakao_url" href="javascript:sendLink()">
                                 <img src="{{ asset('images/card/kakatoshare.png') }}">

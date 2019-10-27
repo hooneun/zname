@@ -141,6 +141,7 @@ i {
     opacity: 1;
     z-index: 99;
     border: 2px solid #E53935;
+    box-shadow: none;
 }
 
 #add_youtube::placeholder {

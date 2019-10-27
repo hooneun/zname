@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    {{--<div id="js-startImg" class="loader_background h-100 w-100 position-absolute fixed-top">--}}
-        {{--<img src="{{ asset('images/loader.svg') }}">--}}
-    {{--</div>--}}
+    <div id="js-startImg" class="loader_background h-100 w-100 position-absolute fixed-top">
+        <img src="{{ asset('images/loader.svg') }}">
+    </div>
     <div class="container">
         @auth
             <div class="row">
@@ -87,23 +87,23 @@
 
 @section('script')
     <script>
-        {{--const START_IMG = document.getElementById('js-startImg');--}}
+        const START_IMG = document.getElementById('js-startImg');
 
-        {{--@if (config('app.env') === 'production')--}}
-        {{--if (!localStorage.getItem('START_LOGO')) {--}}
-            {{--localStorage.setItem('START_LOGO', true);--}}
-            {{--setTimeout(function () {--}}
-                {{--START_IMG.classList.add('fade');--}}
-                {{--setTimeout(function () {--}}
-                    {{--START_IMG.style.display = 'none';--}}
-                {{--}, 2000)--}}
-            {{--}, 1000);--}}
-        {{--} else {--}}
-            {{--START_IMG.style.display = 'none';--}}
-        {{--}--}}
-        {{--@else--}}
-            {{--START_IMG.style.display = 'none';--}}
-        {{--@endif--}}
+        @if (config('app.env') === 'production')
+        if (!localStorage.getItem('START_LOGO')) {
+            localStorage.setItem('START_LOGO', true);
+            setTimeout(function () {
+                START_IMG.classList.add('fade');
+                setTimeout(function () {
+                    START_IMG.style.display = 'none';
+                }, 2000)
+            }, 1000);
+        } else {
+            START_IMG.style.display = 'none';
+        }
+        @else
+            START_IMG.style.display = 'none';
+        @endif
 
         function linkCopy (obj) {
             Copy(obj.value);

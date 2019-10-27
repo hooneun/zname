@@ -58,6 +58,7 @@ class CardController extends Controller
 		return view('cards.register', [
 			'type' => 'register',
 			'card' => $card,
+			'init' => false,
 		]);
 	}
 

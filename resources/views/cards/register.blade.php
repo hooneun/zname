@@ -31,6 +31,7 @@
     <main id="card-content">
         <form method="post" id="js-register-form" action="{{ $type === 'register' ? route('cards.register') : route('cards.update', ['id' => $card->id], false) }}" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="init" value="{{ $init }}">
             <div id="zname_total_wrapper">
                 @if ($type === 'register' || $type === 'edit')
                 <div id="card_title">
@@ -66,7 +67,7 @@
                                 @endif
                             @elseif ($type === 'register' || $type === 'edit')
                                 @if ($init)
-                                    <input id="main_photo" type="file" name="main_profile" value="{{ old('main_profile') }}" onchange="readURL(this);"/>
+                                    <input id="main_photo" type="file" name="main_profile" value="{{ 'images/card/myprofilephoto.png' }}" onchange="readURL(this);"/>
                                     <img onclick="click_to_change('main_photo')" src="{{ asset('images/card/myprofilephoto.png') }}">
                                 @else
                                     <input id="main_photo" type="file" name="main_profile" value="{{ !empty($card->main_profile_url) ? asset($card->main_profile_url) : old('main_profile') }}" onchange="readURL(this);"/>

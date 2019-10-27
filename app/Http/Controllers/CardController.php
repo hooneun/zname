@@ -172,7 +172,14 @@ class CardController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		$this->updateValidator($request->all())->validate();
+		$cardId = Detail::find($id)->card_id;
+		$init = Card::find($cardId)->init;
+
+		if ($init) {
+			$this->validator($request->all())->validate();
+		} else {
+			$this->updateValidator($request->all())->validate();
+		}
 
 		$imagePaths = $this->imageCreates(Auth::id(), $request->only(Detail::$IMAGE_COLUMNS));
 
@@ -182,7 +189,7 @@ class CardController extends Controller
 			$req[$key] = $path;
 		}
 
-		$card = DB::transaction(function () use ($imagePaths, $req, $id) {
+		$card = DB::transaction(function () use ($imagePaths, $req, $id, $init) {
 			$detail = Detail::find($id);
 			$card = Card::find($detail->card_id);
 
@@ -192,6 +199,11 @@ class CardController extends Controller
 
 			$card->update(['title' => $req['title'], 'init' => false]);
 			unset($req['title']);
+			unset($req['init']);
+
+			if ($init && empty($req['ad_image_top'])) {
+				$req['ad_image_top'] = null;
+			}
 
 			return [
 				'success' => $detail->update($req),

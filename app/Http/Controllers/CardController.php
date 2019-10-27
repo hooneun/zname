@@ -23,6 +23,7 @@ class CardController extends Controller
 		$this->middleware('auth', ['except' => ['index', 'show', 'showPhone']]);
 	}
 
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -107,7 +108,6 @@ class CardController extends Controller
 			unset($req['title']);
 
 			$req['card_id'] = $card->id;
-			$req['init'] = false;
 
 			return Detail::create($req);
 		});

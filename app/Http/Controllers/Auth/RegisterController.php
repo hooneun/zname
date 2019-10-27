@@ -117,7 +117,6 @@ class RegisterController extends Controller
 			$main_profile = $user->gender === 'M'
 				? 'images/card/default/man.png'
 				: 'images/card/default/girl.png';
-			dd($user->gender, $main_profile);
 
 			return Detail::create([
 				'card_id' => $card->id,

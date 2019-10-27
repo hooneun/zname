@@ -343,7 +343,14 @@
                                     .catch(function (errors) {
                                         const error = errors.response.data.errors;
                                         loadingOff();
-                                        alert(error[Object.keys(error)[0]][0]);
+                                        let errMsg = '';
+                                        for (err in error) {
+                                            if (errMsg !== '') {
+                                                errMsg += '\n';
+                                            }
+                                            errMsg += error[err][0];
+                                        }
+                                        alert(errMsg);
                                     });
                             };
                             @endif

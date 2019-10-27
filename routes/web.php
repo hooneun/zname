@@ -32,7 +32,7 @@ Route::get('/cards/{id}/edit', 'CardController@edit')->name('cards.edit');
 Route::post('/cards/{id}/update', 'CardController@update')->name('cards.update');
 Route::get('/cards/{id}/delete', 'CardController@destroy')->name('cards.delete');
 Route::get('/cards/{id}', 'CardController@show')->name('cards.view');
-Route::get('/card/{phone}', 'CardController@showPhone');
+//Route::get('/card/{phone}', 'CardController@showPhone');
 Route::get('/cards/map/{id}', function ($id) {
 	$card = \App\Detail::find($id);
 	return view('cards.map', compact('card'));

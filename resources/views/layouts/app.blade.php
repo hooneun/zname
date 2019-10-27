@@ -39,7 +39,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ asset('images/logo.png') }}" style="height: 16px;">
+                <img src="{{ asset('images/logo.svg') }}" style="height: 16px;">
             </a>
             @auth
                 @if (\Request::route()->getName() !== 'home')

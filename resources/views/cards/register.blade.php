@@ -40,7 +40,11 @@
                 <div id="profile_section">
                     <div id="rep_img">
                         @if ($type === 'view')
-                            <img src="{{ asset($card->main_image_url) }}">
+                            @if ($init)
+                                <img src="{{ asset($card->main_image) }}">
+                            @else
+                                <img src="{{ asset($card->main_image_url) }}">
+                            @endif
                         @elseif ($type === 'register' || $type === 'edit')
                             <input id="main_pic" type="file" name="main_image" value="{{ !empty($card->main_image_url) ? $card->main_image_url : old('main_image') }}" onchange="readURL(this);"/>
                             <img onclick="click_to_change('main_pic')" src="{{ !empty($card->main_image_url) ? asset($card->main_image_url) : asset('images/card/main_img.png') }}">
@@ -49,7 +53,11 @@
                     <div id="main_card_section">
                         <div id="main_left_section">
                             @if ($type === 'view')
+                                @if ($init)
+                                    <img src="{{ asset($card->main_profile) }}">
+                                @else
                                 <img src="{{ asset($card->main_profile_url) }}">
+                                @endif
                             @elseif ($type === 'register' || $type === 'edit')
                                 <input id="main_photo" type="file" name="main_profile" value="{{ !empty($card->main_profile_url) ? asset($card->main_profile_url) : old('main_profile') }}" onchange="readURL(this);"/>
                                 <img onclick="click_to_change('main_photo')" src="{{ !empty($card->main_profile_url) ? asset($card->main_profile_url) : asset('images/card/myprofilephoto.png') }}">
@@ -205,7 +213,11 @@
                         <div>
                             @if ($type === 'view')
                                 @if (!empty($card->ad_image_top))
-                                <img src="{{ asset($card->ad_image_top_url) }}">
+                                    @if ($init)
+                                        <img src="{{ asset($card->ad_image_top) }}">
+                                    @else
+                                        <img src="{{ asset($card->ad_image_top_url) }}">
+                                    @endif
                                 @endif
                                 @if (!empty($card->ad_content_top))
                                 <div class="wit-spc">{{ $card->ad_content_top }}</div>

@@ -101,10 +101,12 @@ class CardController extends Controller
 			$card = Card::create([
 				'user_id' => $userId,
 				'title' => $req['title'],
+				'init' => false
 			]);
 			unset($req['title']);
 
 			$req['card_id'] = $card->id;
+			$req['init'] = false;
 
 			return Detail::create($req);
 		});
@@ -125,9 +127,10 @@ class CardController extends Controller
 	{
 		$card = Detail::whereId($id)
 			->first();
+		$init = Card::find($card->card_id)->init;
 		$type = 'view';
 
-		return view('cards.register', compact('card', 'type'));
+		return view('cards.register', compact('card', 'type', 'init'));
 	}
 
 	public function showPhone($phone)
@@ -185,7 +188,7 @@ class CardController extends Controller
 				Storage::delete($detail->{$_column});
 			}
 
-			$card->update(['title' => $req['title']]);
+			$card->update(['title' => $req['title'], 'init' => false]);
 			unset($req['title']);
 
 			return [

@@ -79,6 +79,28 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="gender" class="col-md-4 col-form-label text-md-right">성별
+                                    <span class="text-danger align-middle">*</span>
+                                </label>
+
+                                <div class="col-md-6">
+                                    <div class="form-check form-check-inline">
+                                        남<input type="radio" class="form-check-input gender_input @error('gender') is-invalid @enderror"
+                                                name="gender" value="M" required {{ old('gender') === 'M' || empty(old('gender')) ? 'checked' : '' }}>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        여<input type="radio" class="form-check-input gender_input @error('gender') is-invalid @enderror"
+                                                name="gender" value="F" required {{ old('gender') === 'F' ? 'checked' : '' }}>
+                                    </div>
+                                    @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             <div>
                                 <div class="form-group row">
                                     <label for="contact_address" class="col-md-4 col-form-label text-md-right">

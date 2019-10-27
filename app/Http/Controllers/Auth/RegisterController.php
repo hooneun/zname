@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Card;
+use App\Detail;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -81,6 +84,7 @@ class RegisterController extends Controller
 			'company_name' => ['nullable', 'string', 'min:1', 'max:20'],
 			'position' => ['nullable', 'string', 'max:10'],
 			'address' => ['nullable', 'string', 'max:100'],
+			'gender' => ['required', 'in:M,F']
 		]);
 	}
 
@@ -92,7 +96,7 @@ class RegisterController extends Controller
 	 */
 	protected function create(array $data)
 	{
-		return User::create([
+		$user =  User::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
 			'password' => Hash::make($data['password']),
@@ -100,6 +104,34 @@ class RegisterController extends Controller
 			'company_name' => $data['company_name'],
 			'position' => $data['position'],
 			'address' => $data['address'],
+			'gender' => $data['gender']
 		]);
+
+		$card = DB::transaction(function () use ($user) {
+			$card = Card::create([
+				'user_id' => $user->id,
+				'title' => $user->name . '님의 명합니다.',
+				'init' => true,
+			]);
+
+			$main_profile = $user->gender === 'M'
+				? 'images/card/default/man.png'
+				: 'images/card/default/girl.png';
+
+			return Detail::create([
+				'card_id' => $card->id,
+				'main_image' => 'images/card/default/top.png',
+				'main_profile' => $main_profile,
+				'name' => $user->name,
+				'address' => $user->address,
+				'job' => $user->position,
+				'phone' => $user->contact_address,
+				'message' => $user->name . '님의 명함입니다.',
+				'email' => $user->email,
+				'ad_image_top' => 'images/card/default/bottom.png',
+			]);
+		});
+
+		return $user;
 	}
 }

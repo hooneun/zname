@@ -1,5 +1,5 @@
 a:active, a:hover {
-    color: #000000 !important;
+    color: #fff!important;
     text-decoration: none !important;
 }
 
@@ -126,6 +126,7 @@ i {
 }
 
 #card_type {
+    border-style: solid;
     max-width: 400px;
     font-size: 14px;
     color: #000000;
@@ -732,5 +733,14 @@ input[type="url"] {
 }
 
 #today_comment::placeholder {
-    color: red;
+    color: #ff0000
+}
+
+#card_type::placeholder {
+    color: #ff0000
+}
+
+.form-check-inline .form-check-input {
+    width: auto;
+    margin-left: 10px !important;
 }

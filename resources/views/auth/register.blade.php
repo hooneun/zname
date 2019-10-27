@@ -109,7 +109,7 @@
                                     </label>
 
                                     <div class="col-md-6">
-                                        <input id="contact_address" type="text" class="form-control @error('contact_address') is-invalid @enderror" name="contact_address" value="{{ old('contact_address') }}" required autocomplete="contact_address">
+                                        <input id="contact_address" type="tel" class="form-control @error('contact_address') is-invalid @enderror" name="contact_address" value="{{ old('contact_address') }}" required autocomplete="contact_address">
                                     </div>
                                 </div>
 

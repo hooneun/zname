@@ -743,3 +743,7 @@ input[type="url"] {
 .home_card_title {
     min-width: 190px;
 }
+
+input::placeholder {
+    padding: 2px 0;
+}

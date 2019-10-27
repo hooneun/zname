@@ -34,7 +34,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="text-center">올네임을 생성해주세요.</td>
+                            <td colspan="4" class="text-center">ZNAME을 생성해주세요.</td>
                         </tr>
                     @endforelse
                     </tbody>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p class="main_p p-4">올네임은 비즈니스, 프리랜서, 각종 모임 및 동호회 등을 위한 온라인 명함
+                        <p class="main_p p-4">ZNAME은 비즈니스, 프리랜서, 각종 모임 및 동호회 등을 위한 온라인 명함
                             플랫폼입니다. 하나의 계정으로 여러종류의 명함을 만들 수 있으며 언제 어디서든 다양하게 사용할 수
                             있습니다. 지금바로 나만의 명함을 만들어보세요.</p>
                     </div>

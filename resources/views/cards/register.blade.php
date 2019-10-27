@@ -279,9 +279,9 @@
                                     .then(function (response) {
                                         loadingOff();
                                         @if ($type === 'register')
-                                        alert('올네임 생성이 완료되었습니다.');
+                                        alert('ZNAME 생성이 완료되었습니다.');
                                         @else
-                                        alert('올네임 수정이 완료되었습니다.');
+                                        alert('ZNAME 수정이 완료되었습니다.');
                                         @endif
 
                                             location.href = '/cards/' + response.data.id;

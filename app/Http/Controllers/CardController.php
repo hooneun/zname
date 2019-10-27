@@ -252,7 +252,7 @@ class CardController extends Controller
 			'ad_image_bottom' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
 			'ad_content_bottom' => ['nullable', 'between:5,200'],
 		], [], [
-			'title' => '올네임 제목',
+			'title' => 'ZNAME 제목',
 			'main_image' => '메인 이미지',
 			'main_profile' => '프로필 사진',
 			'name' => '이름',

@@ -86,11 +86,11 @@
 
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
-                                        남<input type="radio" class="form-check-input gender_input @error('gender') is-invalid @enderror"
+                                        <span class="gender_txt">남</span><input type="radio" class="form-check-input gender_input @error('gender') is-invalid @enderror"
                                                 name="gender" value="M" required {{ old('gender') === 'M' || empty(old('gender')) ? 'checked' : '' }}>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        여<input type="radio" class="form-check-input gender_input @error('gender') is-invalid @enderror"
+                                        <span class="gender_txt">여</span><input type="radio" class="form-check-input gender_input @error('gender') is-invalid @enderror"
                                                 name="gender" value="F" required {{ old('gender') === 'F' ? 'checked' : '' }}>
                                     </div>
                                     @error('gender')
@@ -161,7 +161,7 @@
                                     <input id="address" type="text"
                                            class="form-control @error('address') is-invalid @enderror" name="address"
                                            onclick="openAddress()"
-                                           value="{{ old('address') }}" autocomplete="address" autofocus>
+                                           value="{{ old('address') }}" autocomplete="address" autofocus readonly>
 
                                     @error('address')
                                     <span class="invalid-feedback" role="alert">

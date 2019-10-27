@@ -730,8 +730,10 @@ input[type="url"] {
 .gender_input {
     width: 10vw;
 }
+.gender_txt {
+    margin-right: 10px;
+}
 
 .form-check-inline .form-check-input {
     width: auto;
-    margin-left: 10px !important;
 }

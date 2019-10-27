@@ -23,7 +23,7 @@
                             <td class="home_card_title">{{ $list->title }}</td>
                             <td class="text-right">
                                 <button type="button" class="btn btn-dark mb-1" onclick="linkCopy(this)"
-                                        value="{{ url('card', ['id' => $list->details->id], false) }}">복사
+                                        value="{{ url('cards', ['id' => $list->details->id], false) }}">복사
                                 </button>
                                 <a class="btn btn-dark mb-1"
                                    href="{{ route('cards.edit', ['id' => $list->details->id], false) }}">수정</a>

@@ -103,11 +103,11 @@ class CardController extends Controller
 			$card = Card::create([
 				'user_id' => $userId,
 				'title' => $req['title'],
-				'init' => false
 			]);
 			unset($req['title']);
 
 			$req['card_id'] = $card->id;
+			$req['init'] = false;
 
 			return Detail::create($req);
 		});

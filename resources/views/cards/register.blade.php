@@ -365,16 +365,16 @@
                                         description: '{{ $card->message }}',
                                         imageUrl: '{{ asset($card->main_profile_url) }}',
                                         link: {
-                                            mobileWebUrl: '{{ url('/card/' . $card->phone)  }}',
-                                            webUrl: '{{ url('/card/' . $card->phone) }}'
+                                            mobileWebUrl: '{{ url('/cards/' . $card->id)  }}',
+                                            webUrl: '{{ url('/cards/' . $card->id) }}'
                                         }
                                     },
                                     buttons: [
                                         {
                                             title: '자세히 보기',
                                             link: {
-                                                mobileWebUrl: '{{ url('/card/' . $card->phone)  }}',
-                                                webUrl: '{{ url('/card/' . $card->phone) }}'
+                                                mobileWebUrl: '{{ url('/cards/' . $card->id)  }}',
+                                                webUrl: '{{ url('/cards/' . $card->id) }}'
                                             }
                                         }
                                     ]
